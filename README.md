@@ -1,2 +1,4 @@
-# my-anime-ship
-💫 Discover your compatibility with your favorite anime character here!
+# My Anime Ship
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
