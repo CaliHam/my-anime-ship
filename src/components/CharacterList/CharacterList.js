@@ -1,6 +1,6 @@
 import './CharacterList.css'
 
-const CharacterList = ({characters}) => {
+const CharacterList = ({user, characters}) => {
 
     const renderCharacters = () => {
         return characters.map(man => {
@@ -14,12 +14,21 @@ const CharacterList = ({characters}) => {
     }
 
   return (
-    <section>
+    <main>
         <h2>Pick Your Man</h2>
-        <div className='all-characters-container'>
-            {characters && renderCharacters()}
-        </div>
-    </section>
+        <section className='match-container'>
+            <aside>
+                <div className='user-container'>
+                    <p>{user.name}</p>
+                    <p>{user.birthday}</p>
+                </div>
+                <button>Change User</button>
+            </aside>
+            <div className='all-characters-container'>
+                {characters && renderCharacters()}
+            </div>
+        </section>
+    </main>
   )
 }
 

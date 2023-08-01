@@ -10,13 +10,17 @@ const User = ({user, setUser}) => {
         setUser({...user, [name]: value})
     }
 
+    const submitForm = () => {
+        localStorage.setItem('user', JSON.stringify(user))
+    }
+
   return (
     <div className='user-wrapper'>
         <h1>Would you have a chance with your favorite anime character? Find out now!</h1>
         <div className='user-form-container'>
             <aside className='icon-container'>
                 <img src='https://pbs.twimg.com/media/E3_1i33VkAAI1ub.jpg' alt='user icon' className='user-icon'/>
-                <div class="image-overlay">
+                <div className="image-overlay">
                     <p><img className='pencil-icon' src={pencil} alt='pencil'/> EDIT</p>
                 </div>
             </aside>
@@ -27,7 +31,7 @@ const User = ({user, setUser}) => {
                 <input name='birthday' type='date' value={user.birthday} onChange={e => handleUserChange(e)}/>
             </form>
         </div>
-        <Link to='/pickcharacter'><img className='next-arrow' src={next} alt='next arrow'/></Link>
+        <Link to='/match'><button onClick={submitForm}><img className='next-arrow' src={next} alt='next arrow'/></button></Link>
     </div>
   )
 }
