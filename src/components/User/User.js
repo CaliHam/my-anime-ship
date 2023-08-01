@@ -3,7 +3,7 @@ import './User.css'
 import pencil from './pencil.png'
 import next from './right-arrow.png'
 
-const User = ({user, setUser}) => {
+const User = ({user, setUser, setSavedUser}) => {
 
     const handleUserChange = (e) => {
         const {name, value} = e.target
@@ -12,6 +12,8 @@ const User = ({user, setUser}) => {
 
     const submitForm = () => {
         localStorage.setItem('user', JSON.stringify(user))
+        setSavedUser(true)
+        setUser(user)
     }
 
   return (

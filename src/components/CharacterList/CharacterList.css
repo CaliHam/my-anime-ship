@@ -1,6 +1,6 @@
 .match-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .all-characters-container {
@@ -15,7 +15,7 @@
 .character-container {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
     text-align: center;
     margin: 0;
     overflow: hidden;
