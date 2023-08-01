@@ -2,7 +2,7 @@ import './ServerDown.css'
 
 const ServerDown = () => {
   return (
-    <div>ServerDown</div>
+    <span>Server Down. Try again later.</span>
   )
 }
 
