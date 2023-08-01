@@ -1,0 +1,42 @@
+.match-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.all-characters-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    gap: 2rem;
+    margin: 2rem;
+    align-items: start;
+    width: 50%;
+}
+
+.character-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+.character-container > img {
+    height: 100px;
+    align-self: center;
+    transition: .3s ease all;
+}
+
+.character-container > img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.user-container {
+    border: 2px ridge rebeccapurple;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    height: 200px;
+    width: 200px;
+}

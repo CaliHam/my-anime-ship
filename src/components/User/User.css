@@ -1,0 +1,63 @@
+.user-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-form-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 600px;
+    align-self: center;
+}
+
+.user-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.icon-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.user-icon {
+    border-radius: 50%;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(34, 34, 34, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-overlay p {
+    text-align: center;
+    color: #fff; 
+    font-size: 18px;
+    margin-top: 40%;
+}
+
+.icon-container:hover .image-overlay {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.pencil-icon {
+    width: 20px;
+}
+
+.next-arrow {
+    margin-top: 10px;
+}
