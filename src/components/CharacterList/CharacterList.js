@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import './CharacterList.css'
 import dayjs from 'dayjs'
-import { postSynastry } from '../../apiCalls'
-import { useEffect, useState } from 'react'
+import { getCharacter, postSynastry } from '../../apiCalls'
+import { useState } from 'react'
 
-const CharacterList = ({user, setUser, characters, setSavedUser, selectedManId, setSelectedManId}) => {
+const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, setSelectedMan, setReport}) => {
+
+	const [selectedManId, setSelectedManId] = useState(null)
 
 	const changeUser = () => {
 		setUser({name: '', birthday: ''})
@@ -27,10 +29,10 @@ const CharacterList = ({user, setUser, characters, setSavedUser, selectedManId, 
 		const dateObj = dayjs(user.birthday, 'MM/DD/YYYY')
 		const userMonth = dateObj.month() + 1;
 		const userDay = dateObj.date()
-
-		// postSynastry(userMonth, userDay, month2, day2).then(report => {
-		// 	setReport(report)
-		// })
+		getCharacter(selectedManId).then(man => {
+			setSelectedMan(man)
+			postSynastry(userMonth, userDay, man.month, man.day).then(report => setReport(report))
+		})
 	}
 
   return (

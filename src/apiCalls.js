@@ -8,7 +8,7 @@ const getAllCharacters = async () => {
 }
 
 const getCharacter = async (id) => {
-  const response = await fetch(`http://localhost:3001/api/v1/character/${id}`)
+  const response = await fetch(`http://localhost:3001/api/v1/characters/${id}`)
   if (!response.ok) {
     throw new Error(response.statusText)
   }
