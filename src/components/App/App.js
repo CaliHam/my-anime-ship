@@ -9,7 +9,7 @@ import User from '../User/User';
 const App = () => {
 
   const [characters, setCharacters] = useState([])
-  const [user, setUser] = useState({name: '', birthday: ''})
+  const [user, setUser] = useState({name: '', birthday: '', sign: ''})
   const [savedUser, setSavedUser] = useState(null)
   const [serverDown, setServerDown] = useState(false)
   const [isLoading, setIsLoading] = useState(true)

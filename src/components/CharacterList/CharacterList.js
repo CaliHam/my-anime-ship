@@ -29,6 +29,7 @@ const CharacterList = ({user, setUser, characters, setSavedUser}) => {
 					<div className='user-container'>
 						<p>{user.name}</p>
 						<p>{dayjs(user.birthday).format('MMMM D, YYYY')}</p>
+						<p>{user.sign}</p>
 					</div>
 					<Link to="/"><button onClick={changeUser}>Change User</button></Link>
 				</aside>
