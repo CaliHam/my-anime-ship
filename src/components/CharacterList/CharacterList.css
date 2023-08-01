@@ -13,10 +13,15 @@
     text-align: center;
     margin: 0;
     overflow: hidden;
-    transition: .3s ease all;
 }
 
 .character-container > img {
     height: 300px;
     align-self: center;
+    transition: .3s ease all;
+}
+
+.character-container > img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }

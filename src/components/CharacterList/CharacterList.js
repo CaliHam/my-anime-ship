@@ -14,7 +14,12 @@ const CharacterList = ({characters}) => {
     }
 
   return (
-    <div className='all-characters-container'>{characters && renderCharacters()}</div>
+    <section>
+        <h2>Pick Your Man</h2>
+        <div className='all-characters-container'>
+            {characters && renderCharacters()}
+        </div>
+    </section>
   )
 }
 

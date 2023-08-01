@@ -1,12 +1,16 @@
+import { Routes, Route } from 'react-router';
 import { useEffect, useState } from 'react';
 import './App.css';
 import { getAllCharacters } from '../../apiCalls';
 import CharacterList from '../CharacterList/CharacterList';
-import { Routes, Route } from 'react-router';
+import Home from '../Home/Home';
+import Navbar from '../Navbar/Navbar';
+import User from '../User/User';
 
 const App = () => {
 
   const [characters, setCharacters] = useState([])
+  const [user, setUser] = useState({name: '', birthday: ''})
 
   useEffect(() => {
     getAllCharacters().then(data => setCharacters(data))
@@ -14,10 +18,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>My Anime Ship</h1>
+      <Navbar />
       <Routes>
-        <Route path="/home" />
-        <Route path="/user" />
+        <Route path="/" element={<Home />}/>
+        <Route path="/user" element={<User user={user} setUser={setUser}/>}/>
         <Route path="/pickcharacter" element={<CharacterList characters={characters} />}/>
         <Route path="/report" />
         <Route path="/savedreports" />
