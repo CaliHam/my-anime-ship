@@ -3,8 +3,17 @@ const getAllCharacters = async () => {
   if (!response.ok) {
     throw new Error(response.statusText)
   }
-    const data = await response.json()
-  return data
+    const animeMen = await response.json()
+  return animeMen
+}
+
+const getCharacter = async (id) => {
+  const response = await fetch(`http://localhost:3001/api/v1/character/${id}`)
+  if (!response.ok) {
+    throw new Error(response.statusText)
+  }
+    const man = await response.json()
+  return man
 }
 
 const fetchZodiacSign = async (month, day) => {
@@ -35,6 +44,7 @@ const postSynastry = async (month1, day1, month2, day2) => {
 
 export {
   getAllCharacters,
+  getCharacter,
   fetchZodiacSign,
   postSynastry
 }
