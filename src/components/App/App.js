@@ -5,6 +5,7 @@ import { getAllCharacters } from '../../apiCalls';
 import CharacterList from '../CharacterList/CharacterList';
 import Navbar from '../Navbar/Navbar';
 import User from '../User/User';
+import ServerDown from '../ServerDown/ServerDown'
 
 const App = () => {
 
@@ -13,6 +14,7 @@ const App = () => {
   const [savedUser, setSavedUser] = useState(null)
   const [serverDown, setServerDown] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [selectedManId, setSelectedManId] = useState(null)
   
   useEffect(() => {
     checkForUser()
@@ -41,11 +43,12 @@ const App = () => {
   return (
     <div className="App">
       <Navbar />
+      {serverDown && <ServerDown />}
       <Routes>
         <Route path="/" element={<User user={user} setUser={setUser} setSavedUser={setSavedUser}/>}/>
         <Route path="/match" element={
           savedUser ? (
-          <CharacterList user={user} setUser={setUser} characters={characters} setSavedUser={setSavedUser}/>
+          <CharacterList user={user} setUser={setUser} characters={characters} setSavedUser={setSavedUser} selectedManId={selectedManId} setSelectedManId={setSelectedManId}/>
           ) : (
             <Navigate replace to="/" />
           )}/>
@@ -54,7 +57,6 @@ const App = () => {
         <Route path="/:characterid" />
         <Route path="*" />
       </Routes>
-      {serverDown}
     </div>
   );
 }

@@ -36,9 +36,9 @@ const User = ({user, setUser, setSavedUser}) => {
 				</aside>
 				<form className='user-form'>
 					<p>Your Name:</p>
-					<input name='name' value={user.name} onChange={e => handleUserChange(e)}/>
+					<input name='name' value={user.name} onChange={e => handleUserChange(e)} required="required"/>
 					<p>Birthday:</p>
-					<input name='birthday' type='date' value={user.birthday} onChange={e => handleUserChange(e)}/>
+					<input name='birthday' type='date' value={user.birthday} onChange={e => handleUserChange(e)} required="required"/>
 				</form>
 			</div>
 			<Link to='/match'><button onClick={submitForm}><img className='next-arrow' src={next} alt='next arrow'/></button></Link>

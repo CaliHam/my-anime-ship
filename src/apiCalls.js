@@ -1,5 +1,5 @@
 const getAllCharacters = async () => {
-  const response = await fetch('https://my-anime-ship-api.onrender.com/api/v1/characters')
+  const response = await fetch('http://localhost:3001/api/v1/characters')
   if (!response.ok) {
     throw new Error(response.statusText)
   }
@@ -8,7 +8,7 @@ const getAllCharacters = async () => {
 }
 
 const fetchZodiacSign = async (month, day) => {
-  const response = await fetch(`https://my-anime-ship-api.onrender.com/api/v1/zodiac`, {
+  const response = await fetch(`http://localhost:3001/api/v1/zodiac`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({month, day})
@@ -21,7 +21,7 @@ const fetchZodiacSign = async (month, day) => {
 }
 
 const postSynastry = async (month1, day1, month2, day2) => {
-  const response = await fetch(`https://my-anime-ship-api.onrender.com/api/v1/synastry`, {
+  const response = await fetch(`http://localhost:3001/api/v1/synastry`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({month1, day1, month2, day2})
@@ -33,10 +33,8 @@ const postSynastry = async (month1, day1, month2, day2) => {
   return report
 }
 
-
-
 export {
-    getAllCharacters,
-    fetchZodiacSign,
-    postSynastry
-  }
+  getAllCharacters,
+  fetchZodiacSign,
+  postSynastry
+}
