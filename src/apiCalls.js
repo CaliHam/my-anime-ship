@@ -8,6 +8,8 @@ const getAllCharacters = async () => {
 }
 
 
+
+
 export {
     getAllCharacters,
 
