@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './CompatibilityResults.css'
 
 const CompatibilityResults = ({user, report, selectedMan}) => {
@@ -24,6 +25,7 @@ const CompatibilityResults = ({user, report, selectedMan}) => {
     <div>
       <h2>Compatibility Results</h2>
       {!report ? <p>Loading...</p> : renderReport()}
+      <Link to='/match'><button>Make Another Calculation</button></Link>
     </div>
   )
 }
