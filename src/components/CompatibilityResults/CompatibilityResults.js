@@ -7,8 +7,12 @@ const CompatibilityResults = ({user, report, selectedMan}) => {
     return (
       <section>
         <div className='user-report-container'>
-          <h3>{user.name} & {selectedMan.name}</h3>
-          <p>{user.sign} & {selectedMan.zodiac_sign}</p>
+          <img src={user.icon} alt='user icon' className='report-icon'/>
+          <div>
+            <h3>{user.name} & {selectedMan.name}</h3>
+            <p>{user.sign} & {selectedMan.zodiac_sign}</p>
+          </div>
+          <img src={selectedMan.image_url} alt={`${selectedMan.name} icon`} className='report-icon'/>
         </div>
         <div className='percentage-container'>
           <p className='report-score'>{report.compatibilityScore}</p>

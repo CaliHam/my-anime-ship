@@ -6,6 +6,18 @@
     padding: 50px;
 }
 
+.user-report-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.report-icon {
+    border-radius: 50%;
+    width: 125px;
+    height: auto;
+    border: 5px dashed white;
+}
+
 .report-score {
     font-size: 4em;
 }
