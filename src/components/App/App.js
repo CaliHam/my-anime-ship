@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router';
 import { useEffect, useState } from 'react';
-import { getAllCharacters } from '../../apiCalls';
+import { getAllCharacters, getSavedReports } from '../../apiCalls';
 import CharacterList from '../CharacterList/CharacterList';
 import Navbar from '../Navbar/Navbar';
 import User from '../User/User';
@@ -70,7 +70,7 @@ const App = () => {
           report={report} 
           selectedMan={selectedMan}
           setSavedReports={setSavedReports}/>}/>
-        <Route path="/savedreports" element={<SavedReports />}/>
+        <Route path="/savedreports" element={<SavedReports savedReports={savedReports} setSavedReports={setSavedReports}/>}/>
       </Routes>
     )
   }

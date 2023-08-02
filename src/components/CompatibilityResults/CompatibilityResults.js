@@ -9,19 +9,12 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
   const [confirmSaved, setConfirmSaved] = useState(false)
 
   const saveCurrentReport = () => {
-    // const currentReport = {
-    //   id: Date.now(),
-    //   user,
-    //   report,
-    //   selectedMan
-    // }
     postCurrentReport({id: Date.now(),
     user,
     report,
     selectedMan})
       .then(allReports => {
         setSavedReports(allReports)
-        console.log('saved!')
         setConfirmSaved(true)
       })
       .catch(err => console.log('ERROR', err))
