@@ -12,7 +12,7 @@ import PageNotFound from '../PageNotFound/PageNotFound'
 const App = () => {
 
   const [characters, setCharacters] = useState([])
-  const [user, setUser] = useState({name: '', birthday: '', sign: ''})
+  const [user, setUser] = useState({name: '', birthday: '', sign: '', icon: ''})
   const [savedUser, setSavedUser] = useState(null)
   const [serverDown, setServerDown] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
@@ -47,7 +47,7 @@ const App = () => {
     return (
       <Routes>
         <Route path="*" element={<PageNotFound />}/>
-        <Route path="/" element={<User user={user} setUser={setUser} setSavedUser={setSavedUser}/>}/>
+        <Route path="/" element={<User user={user} setUser={setUser} savedUser={savedUser} setSavedUser={setSavedUser}/>}/>
         <Route path="/match" element={
           savedUser ? (
           <CharacterList user={user} setUser={setUser} characters={characters} setSavedUser={setSavedUser} selectedMan={selectedMan} setSelectedMan={setSelectedMan} setReport={setReport}/>
