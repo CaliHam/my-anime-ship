@@ -60,8 +60,8 @@ const postCurrentReport = async (currentReport) => {
   if (!response.ok) {
     throw new Error(response.statusText)
   }
-  const report = await response.json()
-  return report
+  const allReports = await response.json()
+  return allReports
 }
 
 export {

@@ -5,7 +5,7 @@ const CompatibilityResults = ({user, report, selectedMan}) => {
 
   const renderReport = () => {
     return (
-      <section>
+      <section className='whole-report-container'>
         <div className='user-report-container'>
           <img src={user.icon} alt='user icon' className='report-icon'/>
           <div>
@@ -27,6 +27,7 @@ const CompatibilityResults = ({user, report, selectedMan}) => {
 
   return (
     <div className='whole-report-wrapper'>
+      <button className='save-report'>Save Results</button>
       <h2>Compatibility Results</h2>
       {!report ? <p>Loading...</p> : renderReport()}
       <Link to='/match'><button>Make Another Calculation</button></Link>

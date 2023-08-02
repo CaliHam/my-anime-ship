@@ -69,7 +69,6 @@ const App = () => {
           report={report} 
           selectedMan={selectedMan}/>}/>
         <Route path="/savedreports" element={<SavedReports />}/>
-        <Route path="/:characterid" />
       </Routes>
     )
   }

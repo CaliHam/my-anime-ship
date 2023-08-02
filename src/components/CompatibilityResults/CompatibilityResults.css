@@ -6,6 +6,16 @@
     padding: 50px;
 }
 
+.whole-report-container {
+    position: relative;
+}
+
+.save-report {
+    position: absolute;
+    right: 15%;
+    top: 4%;
+}
+
 .user-report-container {
     display: flex;
     justify-content: space-around;
