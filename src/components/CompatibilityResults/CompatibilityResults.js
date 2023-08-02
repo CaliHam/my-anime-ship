@@ -1,24 +1,35 @@
 import { Link } from 'react-router-dom'
 import './CompatibilityResults.css'
 import { postCurrentReport } from '../../apiCalls'
+import { useState } from 'react'
 
 const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
 
+  const [confirmSaved, setConfirmSaved] = useState(false)
+
   const saveCurrentReport = () => {
-    const currentReport = {
-      id: Date.now(),
-      user,
-      report,
-      selectedMan
-    }
-    postCurrentReport(currentReport)
-      .then(allReports => setSavedReports(allReports))
+    // const currentReport = {
+    //   id: Date.now(),
+    //   user,
+    //   report,
+    //   selectedMan
+    // }
+    postCurrentReport({id: Date.now(),
+    user,
+    report,
+    selectedMan})
+      .then(allReports => {
+        setSavedReports(allReports)
+        console.log('saved!')
+        setConfirmSaved(true)
+      })
       .catch(err => console.log('ERROR', err))
   }
 
   const renderReport = () => {
     return (
       <section className='whole-report-container'>
+        <button className={confirmSaved ? 'save-report disabled' : 'save-report'} onClick={saveCurrentReport}>Save Results</button>
         <div className='user-report-container'>
           <img src={user.icon} alt='user icon' className='report-icon'/>
           <div>
@@ -40,7 +51,6 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
 
   return (
     <div className='whole-report-wrapper'>
-      <button className='save-report' onClick={saveCurrentReport}>Save Results</button>
       <h2>Compatibility Results</h2>
       {!report ? <p>Loading...</p> : renderReport()}
       <Link to='/match'><button>Make Another Calculation</button></Link>

@@ -31,3 +31,7 @@
 .report-score {
     font-size: 4em;
 }
+
+.disabled {
+    display: none;
+}
