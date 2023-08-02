@@ -4,8 +4,14 @@ import './User.css'
 import pencil from './pencil.png'
 import next from './right-arrow.png'
 import dayjs from 'dayjs'
+import UserIcon from './UserIcon/UserIcon'
+import Modal from "./Modal/Modal";
+import { useState } from 'react'
 
 const User = ({user, setUser, setSavedUser}) => {
+
+	const [selectedIcon, setSelectedIcon] = useState('https://u.cubeupload.com/User713646/918Screenshot20230801at.png')
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
 	const handleUserChange = (e) => {
 		const {name, value} = e.target
@@ -24,12 +30,30 @@ const User = ({user, setUser, setSavedUser}) => {
 		}).catch(err => console.log('ERROR:', err))
 	}
 
+	const handleImageClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+	const renderModal = () => {
+		return (
+			<Modal closeModal={closeModal}>
+				<UserIcon setSelectedIcon={setSelectedIcon} setIsModalOpen={setIsModalOpen}/>
+			</Modal>
+		)
+	}
+
   return (
-    <div className='user-wrapper'>
+    <>
+		{isModalOpen && renderModal()}
+		<div className='user-wrapper'>
 			<h1>Would you have a chance with your favorite anime character? Find out now!</h1>
 			<div className='user-form-container'>
-				<aside className='icon-container'>
-					<img src='https://pbs.twimg.com/media/E3_1i33VkAAI1ub.jpg' alt='user icon' className='user-icon'/>
+				<aside className='icon-container' onClick={handleImageClick}>
+					<img src={selectedIcon} alt="user icon" className="user-icon" />
 					<div className="image-overlay">
 						<p><img className='pencil-icon' src={pencil} alt='pencil'/> EDIT</p>
 					</div>
@@ -43,6 +67,7 @@ const User = ({user, setUser, setSavedUser}) => {
 			</div>
 			<Link to='/match'><button onClick={submitForm}><img className='next-arrow' src={next} alt='next arrow'/></button></Link>
 		</div>
+		</>
   )
 }
 
