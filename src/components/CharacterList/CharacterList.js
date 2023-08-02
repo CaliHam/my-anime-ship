@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import './CharacterList.css'
 import dayjs from 'dayjs'
 import { getCharacter, postSynastry } from '../../apiCalls'
@@ -7,6 +7,8 @@ import { useState } from 'react'
 const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, setSelectedMan, setReport}) => {
 
 	const [selectedManId, setSelectedManId] = useState(null)
+	const [navigateToReport, setNavigateToReport] = useState(false)
+	const [manError, setManError] = useState(false)
 
 	const changeUser = () => {
 		setUser({name: '', birthday: '', sign: '', icon: ''})
@@ -26,13 +28,22 @@ const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, se
 	}
 
 	const calculateSynastry = () => {
+		if (!selectedManId){
+			setManError(true)
+			return
+		}
 		const dateObj = dayjs(user.birthday, 'MM/DD/YYYY')
 		const userMonth = dateObj.month() + 1;
 		const userDay = dateObj.date()
 		getCharacter(selectedManId).then(man => {
+			setNavigateToReport(true)
 			setSelectedMan(man)
 			postSynastry(userMonth, userDay, man.month, man.day).then(report => setReport(report))
 		})
+	}
+
+	if (navigateToReport) {
+    return <Navigate to="/report" replace={true} />;
 	}
 
   return (
@@ -54,7 +65,8 @@ const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, se
 					{characters && renderCharacters()}
 				</div>
 			</section>
-			<Link to='/report'><button onClick={calculateSynastry}>Calculate</button></Link>
+			{manError && <p className='form-error'>Please select your man!</p>}
+			<button onClick={calculateSynastry}>Calculate</button>
 	</main>
   )
 }
