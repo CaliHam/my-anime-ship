@@ -85,3 +85,7 @@
     cursor: pointer;
     transform: translateX(15px);
 }
+
+.next-page:hover {
+    background-color: transparent;
+}

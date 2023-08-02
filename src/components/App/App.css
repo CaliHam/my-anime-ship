@@ -1,3 +1,32 @@
+/* colors for app 
+#1D95B1 - teal - dark
+#b476bd - light pastel purpleish
+#5EA5B9 - light teal
+#984B8A - dark purple/magenta
+#F6B780 - orange */
+
 .App {
   text-align: center;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  background-color: #ccc5dd;
+  color: #663399;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  color: white;
+  background-color: #b476bd;
+}
+
+button:active {
+  transform: scale(0.95); 
 }
