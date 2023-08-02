@@ -26,17 +26,19 @@
 .user-icon {
     border-radius: 50%;
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
+    border: 5px dashed white;
 }
 
 .image-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     border-radius: 50%;
+    border: 5px dashed white;
     background-color: rgba(34, 34, 34, 0.5);
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -58,6 +60,32 @@
     width: 20px;
 }
 
+.form-error {
+    color: red;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    width: fit-content;
+    align-self: center;
+    margin: 10px auto;
+}
+
+.next-page {
+    all: unset;
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+
 .next-arrow {
-    margin-top: 10px;
+    transition: transform 0.3s ease;
+}
+
+.next-arrow:hover {
+    cursor: pointer;
+    transform: translateX(15px);
+}
+
+.next-page:hover {
+    background-color: transparent;
 }

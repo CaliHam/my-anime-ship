@@ -5,13 +5,17 @@ const CompatibilityResults = ({user, report, selectedMan}) => {
 
   const renderReport = () => {
     return (
-      <section className='whole-report-wrapper'>
+      <section>
         <div className='user-report-container'>
-          <p>{user.name} & {selectedMan.name}</p>
-          <p>{user.sign} & {selectedMan.zodiac_sign}</p>
+          <img src={user.icon} alt='user icon' className='report-icon'/>
+          <div>
+            <h3>{user.name} & {selectedMan.name}</h3>
+            <p>{user.sign} & {selectedMan.zodiac_sign}</p>
+          </div>
+          <img src={selectedMan.image_url} alt={`${selectedMan.name} icon`} className='report-icon'/>
         </div>
         <div className='percentage-container'>
-          <h1>{report.compatibilityScore}</h1>
+          <p className='report-score'>{report.compatibilityScore}</p>
         </div>
         <article className='result-details-container'>
           <p>{report.compatibilityReport}</p>
@@ -22,7 +26,7 @@ const CompatibilityResults = ({user, report, selectedMan}) => {
   }
 
   return (
-    <div>
+    <div className='whole-report-wrapper'>
       <h2>Compatibility Results</h2>
       {!report ? <p>Loading...</p> : renderReport()}
       <Link to='/match'><button>Make Another Calculation</button></Link>

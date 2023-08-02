@@ -1,0 +1,19 @@
+.user-pick-icon {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 4px dashed white;
+    transition: .3s ease-in-out;
+}
+
+.user-pick-icon:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.icons-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem;
+    margin: 2rem;
+}
