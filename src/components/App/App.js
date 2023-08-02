@@ -47,14 +47,26 @@ const App = () => {
     return (
       <Routes>
         <Route path="*" element={<PageNotFound />}/>
-        <Route path="/" element={<User user={user} setUser={setUser} savedUser={savedUser} setSavedUser={setSavedUser}/>}/>
-        <Route path="/match" element={
-          savedUser ? (
-          <CharacterList user={user} setUser={setUser} characters={characters} setSavedUser={setSavedUser} selectedMan={selectedMan} setSelectedMan={setSelectedMan} setReport={setReport}/>
+        <Route path="/" element={<User 
+          user={user} 
+          setUser={setUser} 
+          setSavedUser={setSavedUser}/>}/>
+        <Route path="/match" element={ savedUser ? (
+          <CharacterList 
+            user={user} 
+            setUser={setUser} 
+            characters={characters} 
+            setSavedUser={setSavedUser} 
+            selectedMan={selectedMan} 
+            setSelectedMan={setSelectedMan} 
+            setReport={setReport}/>
           ) : (
             <Navigate replace to="/" />
           )}/>
-        <Route path="/report" element={<CompatibilityResults user={user} report={report} selectedMan={selectedMan}/>}/>
+        <Route path="/report" element={<CompatibilityResults 
+          user={user} 
+          report={report} 
+          selectedMan={selectedMan}/>}/>
         <Route path="/savedreports" />
         <Route path="/:characterid" />
       </Routes>

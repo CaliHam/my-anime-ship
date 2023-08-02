@@ -8,7 +8,7 @@ import UserIcon from './UserIcon/UserIcon'
 import Modal from "./Modal/Modal";
 import { useState } from 'react'
 
-const User = ({user, setUser, savedUser, setSavedUser}) => {
+const User = ({user, setUser, setSavedUser}) => {
 
 	const [selectedIcon, setSelectedIcon] = useState('https://u.cubeupload.com/User713646/918Screenshot20230801at.png')
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,10 +25,9 @@ const User = ({user, setUser, savedUser, setSavedUser}) => {
 		const dateObj = dayjs(user.birthday, 'MM/DD/YYYY')
 		const month = dateObj.month() + 1;
 		const day = dateObj.date()
-		setUser({...user, icon: selectedIcon})
 		
 		fetchZodiacSign(month, day).then(sign => {
-			setUser({...user, sign: sign})
+			setUser({...user, sign: sign, icon: selectedIcon})
 			localStorage.setItem('user', JSON.stringify(user))
 			setSavedUser(true)
 			setNavigateToMatch(true)
@@ -36,9 +35,7 @@ const User = ({user, setUser, savedUser, setSavedUser}) => {
 	}
 
 	const handleFormCheck = () => {
-		console.log(user)
 		if(user.name === '' || user.birthday === ''){
-			console.log('STOP')
 			setFormIncomplete(true)
 			return false
 		} else {

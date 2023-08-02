@@ -9,7 +9,7 @@ const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, se
 	const [selectedManId, setSelectedManId] = useState(null)
 
 	const changeUser = () => {
-		setUser({name: '', birthday: ''})
+		setUser({name: '', birthday: '', sign: '', icon: ''})
 		localStorage.setItem('user', '')
 		setSavedUser(false)
 	}
@@ -36,14 +36,17 @@ const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, se
 	}
 
   return (
-    <main>
+	<main>
 			<h2>Pick Your Man</h2>
 			<section className='match-container'>
 				<aside>
 					<div className='user-container'>
-						<p>{user.name}</p>
-						<p>{dayjs(user.birthday).format('MMMM D, YYYY')}</p>
-						<p>{user.sign}</p>
+						<img src={user.icon} alt='user icon' className='current-user-icon'/>
+						<article>
+							<p>{user.name}</p>
+							<p>{dayjs(user.birthday).format('MMMM D, YYYY')}</p>
+							<p>{user.sign}</p>
+						</article>
 					</div>
 					<Link to="/"><button onClick={changeUser}>Change User</button></Link>
 				</aside>
@@ -52,7 +55,7 @@ const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, se
 				</div>
 			</section>
 			<Link to='/report'><button onClick={calculateSynastry}>Calculate</button></Link>
-    </main>
+	</main>
   )
 }
 
