@@ -10,10 +10,10 @@
     position: relative;
 }
 
-.save-report {
+.save-report, .saved-checkmark {
     position: absolute;
-    right: 15%;
-    top: 4%;
+    right: 0;
+    top: -20%;
 }
 
 .user-report-container {

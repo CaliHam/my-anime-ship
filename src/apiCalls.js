@@ -51,11 +51,11 @@ const postSynastry = async (month1, day1, month2, day2) => {
   return report
 }
 
-const postCurrentReport = async (currentReport) => {
+const postCurrentReport = async ({id, user, report, selectedMan}) => {
   const response = await fetch(`http://localhost:3001/api/v1/savedreports`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({currentReport})
+    body: JSON.stringify({id, user, report, selectedMan})
   })
   if (!response.ok) {
     throw new Error(response.statusText)
