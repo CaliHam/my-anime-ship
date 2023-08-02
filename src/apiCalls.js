@@ -16,6 +16,15 @@ const getCharacter = async (id) => {
   return man
 }
 
+const getSavedReports = async () => {
+  const response = await fetch(`http://localhost:3001/api/v1/savedreports`)
+  if (!response.ok) {
+    throw new Error(response.statusText)
+  }
+    const man = await response.json()
+  return man
+}
+
 const fetchZodiacSign = async (month, day) => {
   const response = await fetch(`http://localhost:3001/api/v1/zodiac`, {
     method: 'POST',
@@ -45,6 +54,7 @@ const postSynastry = async (month1, day1, month2, day2) => {
 export {
   getAllCharacters,
   getCharacter,
+  getSavedReports,
   fetchZodiacSign,
   postSynastry
 }

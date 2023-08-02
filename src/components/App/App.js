@@ -8,6 +8,7 @@ import User from '../User/User';
 import ServerDown from '../ServerDown/ServerDown'
 import CompatibilityResults from '../CompatibilityResults/CompatibilityResults'
 import PageNotFound from '../PageNotFound/PageNotFound'
+import SavedReports from '../SavedReports/SavedReports';
 
 const App = () => {
 
@@ -67,7 +68,7 @@ const App = () => {
           user={user} 
           report={report} 
           selectedMan={selectedMan}/>}/>
-        <Route path="/savedreports" />
+        <Route path="/savedreports" element={<SavedReports />}/>
         <Route path="/:characterid" />
       </Routes>
     )
