@@ -1,7 +1,20 @@
 import { Link } from 'react-router-dom'
 import './CompatibilityResults.css'
+import { postCurrentReport } from '../../apiCalls'
 
-const CompatibilityResults = ({user, report, selectedMan}) => {
+const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
+
+  const saveCurrentReport = () => {
+    const currentReport = {
+      id: Date.now(),
+      user,
+      report,
+      selectedMan
+    }
+    postCurrentReport(currentReport)
+      .then(allReports => setSavedReports(allReports))
+      .catch(err => console.log('ERROR', err))
+  }
 
   const renderReport = () => {
     return (
@@ -27,7 +40,7 @@ const CompatibilityResults = ({user, report, selectedMan}) => {
 
   return (
     <div className='whole-report-wrapper'>
-      <button className='save-report'>Save Results</button>
+      <button className='save-report' onClick={saveCurrentReport}>Save Results</button>
       <h2>Compatibility Results</h2>
       {!report ? <p>Loading...</p> : renderReport()}
       <Link to='/match'><button>Make Another Calculation</button></Link>

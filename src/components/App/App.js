@@ -15,6 +15,7 @@ const App = () => {
   const [characters, setCharacters] = useState([])
   const [user, setUser] = useState({name: '', birthday: '', sign: '', icon: ''})
   const [savedUser, setSavedUser] = useState(null)
+  const [savedReports, setSavedReports] = useState([])
   const [serverDown, setServerDown] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [selectedMan, setSelectedMan] = useState(null)
@@ -67,7 +68,8 @@ const App = () => {
         <Route path="/report" element={<CompatibilityResults 
           user={user} 
           report={report} 
-          selectedMan={selectedMan}/>}/>
+          selectedMan={selectedMan}
+          setSavedReports={setSavedReports}/>}/>
         <Route path="/savedreports" element={<SavedReports />}/>
       </Routes>
     )
