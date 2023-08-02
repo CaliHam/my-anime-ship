@@ -1,8 +1,9 @@
 import './PageNotFound.css'
+import pageNotFound from './pagenotfound.svg'
 
 const PageNotFound = () => {
   return (
-    <div>404 Page Not Found</div>
+    <img src={pageNotFound} alt='404 Error: Page Not Found' className='error'/>
   )
 }
 

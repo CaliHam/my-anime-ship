@@ -7,6 +7,7 @@ import Navbar from '../Navbar/Navbar';
 import User from '../User/User';
 import ServerDown from '../ServerDown/ServerDown'
 import CompatibilityResults from '../CompatibilityResults/CompatibilityResults'
+import PageNotFound from '../PageNotFound/PageNotFound'
 
 const App = () => {
 
@@ -41,12 +42,11 @@ const App = () => {
   if (isLoading) return (
     <div>Loading...</div>
   )
-  
-  return (
-    <div className="App">
-      <Navbar />
-      {serverDown && <ServerDown />}
+
+  const renderApp = () => {
+    return (
       <Routes>
+        <Route path="*" element={<PageNotFound />}/>
         <Route path="/" element={<User user={user} setUser={setUser} setSavedUser={setSavedUser}/>}/>
         <Route path="/match" element={
           savedUser ? (
@@ -57,8 +57,14 @@ const App = () => {
         <Route path="/report" element={<CompatibilityResults user={user} report={report} selectedMan={selectedMan}/>}/>
         <Route path="/savedreports" />
         <Route path="/:characterid" />
-        <Route path="*" />
       </Routes>
+    )
+  }
+  
+  return (
+    <div className="App">
+      <Navbar />
+      {serverDown ? <ServerDown /> : renderApp()}
     </div>
   );
 }

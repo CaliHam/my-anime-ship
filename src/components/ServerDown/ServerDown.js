@@ -1,8 +1,8 @@
-import './ServerDown.css'
+import serverDown from './serverDown.svg'
 
 const ServerDown = () => {
   return (
-    <span>Server Down. Try again later.</span>
+    <img src={serverDown} alt='500 Error: Server Down' className='error'/>
   )
 }
 
