@@ -51,10 +51,24 @@ const postSynastry = async (month1, day1, month2, day2) => {
   return report
 }
 
+const postCurrentReport = async (currentReport) => {
+  const response = await fetch(`http://localhost:3001/api/v1/savedreports`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({currentReport})
+  })
+  if (!response.ok) {
+    throw new Error(response.statusText)
+  }
+  const report = await response.json()
+  return report
+}
+
 export {
   getAllCharacters,
   getCharacter,
   getSavedReports,
   fetchZodiacSign,
-  postSynastry
+  postSynastry,
+  postCurrentReport
 }
