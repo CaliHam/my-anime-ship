@@ -4,7 +4,7 @@ body {
   font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   background-image: url('https://u.cubeupload.com/User713646/pxfuelfull.jpg');
-  background-size: auto;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
