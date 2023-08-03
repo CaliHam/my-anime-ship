@@ -15,7 +15,7 @@ describe('Match page', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/synastry', {
       statusCode: 200,
       fixture: 'synastryResults',
-    }).as('matchResults')
+    })
     cy.location('pathname').should('eq', '/match')
     .get('h1').contains('Pick Your Man')
     .get('.current-user-icon').should('have.attr', 'src', 'https://u.cubeupload.com/User713646/Screenshot20230802at.png')
