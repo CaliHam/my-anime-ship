@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-button {
+.classic-button {
   display: inline-block;
   padding: 10px 20px;
   font-size: 16px;
@@ -22,11 +22,11 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.classic-button:hover {
   color: white;
   background-color: #b476bd;
 }
 
-button:active {
+.classic-button:active {
   transform: scale(0.95); 
 }

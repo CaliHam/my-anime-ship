@@ -66,7 +66,7 @@ const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, se
 				</div>
 			</section>
 			{manError && <p className='form-error'>Please select your man!</p>}
-			<button onClick={calculateSynastry}>Calculate</button>
+			<button className="classic-button" onClick={calculateSynastry}>Calculate</button>
 	</main>
   )
 }

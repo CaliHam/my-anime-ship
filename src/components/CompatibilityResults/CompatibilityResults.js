@@ -23,7 +23,7 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
   const renderReport = () => {
     return (
       <section className='whole-report-container'>
-        <button className={confirmSaved ? 'save-report disabled' : 'save-report'} onClick={saveCurrentReport}>Save Results</button>
+        <button className={confirmSaved ? 'save-report disabled' : 'save-report classic-button'} onClick={saveCurrentReport}>Save Results</button>
         {confirmSaved && <img src={check} alt='saved confirmation' className='saved-checkmark'/>}
         <div className='user-report-container'>
           <img src={user.icon} alt='user icon' className='report-icon'/>
@@ -48,7 +48,7 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
     <div className='whole-report-wrapper'>
       <h2>Compatibility Results</h2>
       {!report ? <p>Loading...</p> : renderReport()}
-      <Link to='/match'><button>Make Another Calculation</button></Link>
+      <Link to='/match'><button className='classic-button'>Make Another Calculation</button></Link>
     </div>
   )
 }
