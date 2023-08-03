@@ -33,3 +33,21 @@ describe('400 error', () => {
   })
 })
 
+describe('User verification', () => {
+  beforeEach(() => {
+    cy.intercept('GET', 'http://localhost:3001/api/v1/characters', {
+      statusCode: 200,
+      fixture: 'allCharacters',
+    })
+  })
+  it('Should show error message when form is not filled out', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('input[name="name"]').type('Lady Young')
+    cy.get('.next-page').click()
+    cy.get('.form-error').contains('Please fill out form completely!')
+    cy.get('input[name="name"]').clear()
+    cy.get('input[name="birthday"]').type('1998-04-04')
+    cy.get('.next-page').click()
+    cy.get('.form-error').contains('Please fill out form completely!')
+  })
+})
