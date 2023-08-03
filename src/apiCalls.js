@@ -6,7 +6,6 @@ const getAllCharacters = async () => {
     const animeMen = await response.json()
   return animeMen
 }
-// fixture: allCharacters
 
 const getCharacter = async (id) => {
   const response = await fetch(`http://localhost:3001/api/v1/characters/${id}`)
@@ -16,7 +15,6 @@ const getCharacter = async (id) => {
     const man = await response.json()
   return man
 }
-// fixture: chosenCharacter
 
 const getSavedReports = async () => {
   const response = await fetch(`http://localhost:3001/api/v1/savedreports`)
@@ -26,7 +24,6 @@ const getSavedReports = async () => {
     const man = await response.json()
   return man
 }
-// fixture: allSavedReports
 
 const fetchZodiacSign = async (month, day) => {
   const response = await fetch(`http://localhost:3001/api/v1/zodiac`, {
@@ -40,7 +37,6 @@ const fetchZodiacSign = async (month, day) => {
   const sign = await response.json()
   return sign
 }
-// fixture: none, returns a string: "Taurus"
 
 const postSynastry = async (month1, day1, month2, day2) => {
   const response = await fetch(`http://localhost:3001/api/v1/synastry`, {
@@ -54,7 +50,6 @@ const postSynastry = async (month1, day1, month2, day2) => {
   const report = await response.json()
   return report
 }
-// fixture: synastryResults
 
 const postCurrentReport = async ({id, user, report, selectedMan}) => {
   const response = await fetch(`http://localhost:3001/api/v1/savedreports`, {
@@ -68,7 +63,6 @@ const postCurrentReport = async ({id, user, report, selectedMan}) => {
   const allReports = await response.json()
   return allReports
 }
-// fixture: currentReport
 
 const deleteSavedReport = async (id) => {
   const response = await fetch(`http://localhost:3001/api/v1/savedreports/${id}`, {
@@ -81,7 +75,6 @@ const deleteSavedReport = async (id) => {
   const allReports = await response.json()
   return allReports
 }
-// fixture: none? use id: 1691015485484
 
 export {
   getAllCharacters,
