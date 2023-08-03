@@ -33,4 +33,13 @@ describe('Saved Reports', () => {
     cy.location('pathname').should('eq', '/match')
     .get('h1').contains('Pick Your Man')
   })
+  it('Should show message when no reports are saved', () => {
+    cy.intercept('GET', 'http://localhost:3001/api/v1/savedreports', {
+      statusCode: 200,
+      body: [],
+    })
+    cy.visit('http://localhost:3000/savedreports')
+    .get('h1').contains('Saved Reports')
+    .get('.saved-report-container').find('p').contains('Make a calculation and save the report to view it here!')
+  })
 })
