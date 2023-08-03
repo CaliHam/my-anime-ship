@@ -1,4 +1,4 @@
-describe('template spec', () => {
+describe('Navbar navigation', () => {
   beforeEach(() => {
     cy.intercept('GET', 'http://localhost:3001/api/v1/characters', {
       statusCode: 200,
