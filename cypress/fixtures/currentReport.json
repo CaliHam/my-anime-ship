@@ -1,0 +1,36 @@
+{
+  "id": 1691015485484,
+  "user": {
+      "name": "Calli",
+      "birthday": "1998-04-04",
+      "sign": "Aries",
+      "icon": "https://u.cubeupload.com/User713646/9a5Screenshot20230802at.png"
+  },
+  "report": {
+      "sign1": "Aries",
+      "sign2": "Gemini",
+      "areCompatible": true,
+      "compatibilityScore": "73%",
+      "compatibilityReport": "A vibrant connection filled with energy and enthusiasm. Both signs love novelty and adventure, yet might struggle with each other`s unpredictable nature at times."
+  },
+  "selectedMan": {
+      "id": 9,
+      "name": "Hisoka Marow",
+      "birthday": "June 6",
+      "month": 6,
+      "day": 6,
+      "zodiac_sign": "Gemini",
+      "anime": "Hunter x Hunter",
+      "likes": [
+          "Strong opponents",
+          "excitement",
+          "children"
+      ],
+      "dislikes": [
+          "Weak opponents",
+          "boredom"
+      ],
+      "image_url": "https://u.cubeupload.com/User713646/a0fScreenshot20230731at.png",
+      "wiki_page_url": "https://hunterxhunter.fandom.com/wiki/Hisoka_Morow"
+  }
+}

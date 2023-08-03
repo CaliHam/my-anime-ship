@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1691015485484,
+    "user": {
+        "name": "Calli Herrmann",
+        "birthday": "1998-04-04",
+        "sign": "Aries",
+        "icon": "https://u.cubeupload.com/User713646/9a5Screenshot20230802at.png"
+    },
+    "report": {
+        "sign1": "Aries",
+        "sign2": "Gemini",
+        "areCompatible": true,
+        "compatibilityScore": "73%",
+        "compatibilityReport": "A vibrant connection filled with energy and enthusiasm. Both signs love novelty and adventure, yet might struggle with each other`s unpredictable nature at times."
+    },
+    "selectedMan": {
+        "id": 9,
+        "name": "Hisoka Marow",
+        "birthday": "June 6",
+        "month": 6,
+        "day": 6,
+        "zodiac_sign": "Gemini",
+        "anime": "Hunter x Hunter",
+        "likes": [
+            "Strong opponents",
+            "excitement",
+            "children"
+        ],
+        "dislikes": [
+            "Weak opponents",
+            "boredom"
+        ],
+        "image_url": "https://u.cubeupload.com/User713646/a0fScreenshot20230731at.png",
+        "wiki_page_url": "https://hunterxhunter.fandom.com/wiki/Hisoka_Morow"
+    }
+  },
+  {
+      "id": 1691015511586,
+      "user": {
+          "name": "Calli Herrmann",
+          "birthday": "1998-04-04",
+          "sign": "Aries",
+          "icon": "https://u.cubeupload.com/User713646/9a5Screenshot20230802at.png"
+      },
+      "report": {
+          "sign1": "Aries",
+          "sign2": "Pisces",
+          "areCompatible": false,
+          "compatibilityScore": "22%",
+          "compatibilityReport": "The relationship between Aries and Pisces is unique and cannot be categorized. Both signs bring their own strengths and weaknesses to the table. Understanding and respect are key to the success of this match."
+      },
+      "selectedMan": {
+          "id": 4,
+          "name": "Leorio Paradinight",
+          "birthday": "March 3",
+          "month": 3,
+          "day": 3,
+          "zodiac_sign": "Pisces",
+          "anime": "Hunter X Hunter",
+          "likes": [
+              "Helping people",
+              "medicine",
+              "money"
+          ],
+          "dislikes": [
+              "Being looked down upon",
+              "losing a friend"
+          ],
+          "image_url": "https://u.cubeupload.com/User713646/ad9Screenshot20230731at.png",
+          "wiki_page_url": "https://hunterxhunter.fandom.com/wiki/Leorio_Paradinight"
+      }
+  }
+]

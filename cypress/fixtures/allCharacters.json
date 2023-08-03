@@ -1,0 +1,28 @@
+[
+  {
+    "id": 2,
+    "name": "Eren Yeager",
+    "birthday": "March 30",
+    "month": 3,
+    "day": 30,
+    "zodiac_sign": "Aries",
+    "anime": "Attack on Titan",
+    "likes": ["Freedom", "avenging his mother"],
+    "dislikes": ["Titans", "oppression", "being powerless"],
+    "image_url": "https://u.cubeupload.com/User713646/Screenshot20230731at.png",
+    "wiki_page_url": "https://attackontitan.fandom.com/wiki/Eren_Yeager"
+  },
+  {
+    "id": 3,
+    "name": "Monkey D. Luffy",
+    "birthday": "May 5",
+    "month": 5,
+    "day": 5,
+    "zodiac_sign": "Taurus",
+    "anime": "One Piece",
+    "likes": ["Meat", "Adventure", "Becoming Pirate King"],
+    "dislikes": ["Negativity", "Being Betrayed"],
+    "image_url": "https://u.cubeupload.com/User713646/c83Screenshot20230731at.png",
+    "wiki_page_url": "https://onepiece.fandom.com/wiki/Monkey_D._Luffy"
+  }
+]
