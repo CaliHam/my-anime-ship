@@ -8,14 +8,29 @@ describe('Saved Reports', () => {
       statusCode: 200,
       fixture: 'allSavedReports',
     }).as('getAllSaved')
+    cy.intercept('DELETE', 'http://localhost:3001/api/v1/savedreports/1691015485484', {
+      statusCode: 200,
+      fixture: 'deleteReport',
+    }).as('deleteReport')
+    window.localStorage.setItem('user', JSON.stringify({ name: 'Lady Young', birthday: '1998-04-04', sign:'Aries', icon:'https://u.cubeupload.com/User713646/Screenshot20230802at.png'}));
   })
-  it('Should navigate to expected pages', () => {
+  it('Should view saved reports allowing a user to delete one and navigate back to /match', () => {
     cy.visit('http://localhost:3000')
     cy.wait('@getAllCharacters')
     cy.get('.saved-link').contains('Saved Reports').click()
     cy.wait('@getAllSaved')
-    cy.location('pathname').should('eq', '/savedreports')
-    cy.get('h1').contains('Saved Reports')
-    cy.get('.saved-report-container').find('.saved-report').should('have.length', '2')
+    .location('pathname').should('eq', '/savedreports')
+    .get('h1').contains('Saved Reports')
+    .get('.saved-report-container').find('.saved-report').should('have.length', '2')
+    .get('.saved-report').first().find('p').first().contains('Lady Young and Levi Ackerman')
+    .get('.saved-report').first().find('p').last().contains('73%')
+    .get('.saved-report').first().find('.delete-btn').first().click()
+    cy.wait('@deleteReport')
+    cy.get('.saved-report-container').find('.saved-report').should('have.length', '1')
+    .get('.saved-report').first().find('p').first().contains('Lady Young and Leorio Paradinight')
+    .get('.saved-report').first().find('p').last().contains('22%')
+    .get('.classic-button').last().click()
+    cy.location('pathname').should('eq', '/match')
+    .get('h1').contains('Pick Your Man')
   })
 })
