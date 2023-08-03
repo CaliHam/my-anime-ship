@@ -8,10 +8,11 @@ describe('Add user to site', () => {
       statusCode: 200,
       body: 'Aries',
     }).as('zodiacPost')
+    cy.visit('http://localhost:3000')
   })
   it('Should load user form and allow form to filled out with chosen icon', () => {
-    cy.visit('http://localhost:3000')
     cy.wait('@getAllCharacters')
+    cy.location('pathname').should('eq', '/')
     cy.get('h1').contains('Would you have a chance with your favorite anime character? Find out now!')
     .get('.icon-container').click()
     cy.get('.user-pick-icon').last().click()

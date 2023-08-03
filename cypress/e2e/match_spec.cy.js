@@ -3,7 +3,7 @@ describe('Match page', () => {
     cy.intercept('GET', 'http://localhost:3001/api/v1/characters', {
       statusCode: 200,
       fixture: 'allCharacters',
-    }).as('getAllCharacters')
+    })
     window.localStorage.setItem('user', JSON.stringify({ name: 'Lady Young', birthday: '1998-04-04', sign:'Aries', icon:'https://u.cubeupload.com/User713646/Screenshot20230802at.png'}));
     cy.visit('http://localhost:3000/match')
   })
