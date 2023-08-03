@@ -33,6 +33,12 @@
     transition: 0.3s ease;
 }
 
+.btn {
+    background-color: transparent;
+    border: none;
+    width: 30px;
+}
+
 .delete-btn:hover {
     cursor: pointer;
     transform: scale(1.1);

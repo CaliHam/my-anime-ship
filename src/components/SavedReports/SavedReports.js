@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import './SavedReports.css'
-import { getSavedReports } from '../../apiCalls'
+import { deleteSavedReport, getSavedReports } from '../../apiCalls'
 import { Link } from 'react-router-dom'
 import x from './x.png'
 
@@ -11,11 +11,17 @@ const SavedReports = ({savedReports, setSavedReports}) => {
     .catch(err => console.log('all saved error:', err))
   }, [])
 
+	const deleteReport = (id) => {
+		deleteSavedReport(id)
+			.then(allReports => setSavedReports(allReports))
+			.catch(err => console.log('error deleting report:', err))
+	}
+
 	const renderReports = () => {
 		return savedReports.map(report => {
 			return (
 				<div key={report.id} id={report.id} className='saved-report'>
-					<img src={x} alt='delete report' className='delete-btn'/>
+					<button className='delete-btn btn' onClick={() => deleteReport(report.id)}><img src={x} alt='delete report' className='delete-btn'/></button>
 					<p>{report.user.name} and {report.selectedMan.name}</p>
 					<p className='saved-report-score'>{report.report.compatibilityScore}</p>
 				</div>
