@@ -1,5 +1,20 @@
 describe('template spec', () => {
-  it('passes', () => {
-    cy.visit('https://example.cypress.io')
+  beforeEach(() => {
+    cy.intercept('GET', 'http://localhost:3001/api/v1/characters', {
+      statusCode: 200,
+      fixture: 'allCharacters',
+    }).as('getAllCharacters')
+    cy.visit('http://localhost:3000')
+  })
+  it('Should load user form and allow form to filled out with chosen icon', () => {
+    cy.wait('@getAllCharacters')
+    cy.get('h1').contains('Would you have a chance with your favorite anime character? Find out now!')
+    .get('.icon-container').click()
+    cy.get('.user-pick-icon').last().click()
+    cy.get('.icon-container').find('img').should('have.attr', 'src', 'https://u.cubeupload.com/User713646/Screenshot20230802at.png')
+    .get('input[name="name"]').type('Lady Young')
+    cy.should('have.value', 'Lady Young')
+    .get('input[name="birthday"]').type('1998-04-04')
+    cy.should('have.value', '1998-04-04')
   })
 })
