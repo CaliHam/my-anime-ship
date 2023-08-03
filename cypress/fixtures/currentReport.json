@@ -8,29 +8,22 @@
   },
   "report": {
       "sign1": "Aries",
-      "sign2": "Gemini",
+      "sign2": "Capricorn",
       "areCompatible": true,
       "compatibilityScore": "73%",
       "compatibilityReport": "A vibrant connection filled with energy and enthusiasm. Both signs love novelty and adventure, yet might struggle with each other`s unpredictable nature at times."
   },
   "selectedMan": {
-      "id": 9,
-      "name": "Hisoka Marow",
-      "birthday": "June 6",
-      "month": 6,
-      "day": 6,
-      "zodiac_sign": "Gemini",
-      "anime": "Hunter x Hunter",
-      "likes": [
-          "Strong opponents",
-          "excitement",
-          "children"
-      ],
-      "dislikes": [
-          "Weak opponents",
-          "boredom"
-      ],
-      "image_url": "https://u.cubeupload.com/User713646/a0fScreenshot20230731at.png",
-      "wiki_page_url": "https://hunterxhunter.fandom.com/wiki/Hisoka_Morow"
+    "id": 6,
+    "name": "Levi Ackerman",
+    "birthday": "December 25",
+    "month": 12,
+    "day": 25,
+    "zodiac_sign": "Capricorn",
+    "anime": "Attack on Titan",
+    "likes": ["Cleanliness", "tea", "his squad"],
+    "dislikes": ["Dirt", "disorder", "Titans"],
+    "image_url": "https://u.cubeupload.com/User713646/efcScreenshot20230731at.png",
+    "wiki_page_url": "https://attackontitan.fandom.com/wiki/Levi_Ackermann_(Anime)"
   }
 }
