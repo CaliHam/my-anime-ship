@@ -27,11 +27,16 @@ const User = ({user, setUser, setSavedUser}) => {
 		const day = dateObj.date()
 		
 		fetchZodiacSign(month, day).then(sign => {
+			updateStorage(user, sign, selectedIcon)
 			setUser({...user, sign: sign, icon: selectedIcon})
-			localStorage.setItem('user', JSON.stringify(user))
-			setSavedUser(true)
+			// setSavedUser(true)
 			setNavigateToMatch(true)
 		}).catch(err => console.log('ERROR:', err))
+	}
+
+	const updateStorage = (user, sign, selectedIcon) => {
+		localStorage.setItem('user', JSON.stringify({...user, sign: sign, icon: selectedIcon}))
+		setSavedUser(true)
 	}
 
 	const handleFormCheck = () => {

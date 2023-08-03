@@ -5,7 +5,6 @@ import { getCharacter, postSynastry } from '../../apiCalls'
 import { useState } from 'react'
 
 const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, setSelectedMan, setReport}) => {
-
 	const [selectedManId, setSelectedManId] = useState(null)
 	const [navigateToReport, setNavigateToReport] = useState(false)
 	const [manError, setManError] = useState(false)

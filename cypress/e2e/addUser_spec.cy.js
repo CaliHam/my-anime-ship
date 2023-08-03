@@ -4,9 +4,13 @@ describe('template spec', () => {
       statusCode: 200,
       fixture: 'allCharacters',
     }).as('getAllCharacters')
-    cy.visit('http://localhost:3000')
+    cy.intercept('POST', 'http://localhost:3001/api/v1/zodiac', {
+      statusCode: 200,
+      body: 'Aries',
+    }).as('zodiacPost')
   })
   it('Should load user form and allow form to filled out with chosen icon', () => {
+    cy.visit('http://localhost:3000')
     cy.wait('@getAllCharacters')
     cy.get('h1').contains('Would you have a chance with your favorite anime character? Find out now!')
     .get('.icon-container').click()
@@ -16,5 +20,11 @@ describe('template spec', () => {
     cy.should('have.value', 'Lady Young')
     .get('input[name="birthday"]').type('1998-04-04')
     cy.should('have.value', '1998-04-04')
+    cy.get('.next-page').click()
+    cy.wait('@zodiacPost')
+    window.localStorage.setItem('user', JSON.stringify({ user: 'Lady Young', birthday: '1998-04-04', sign:'Aries', icon:'https://u.cubeupload.com/User713646/Screenshot20230802at.png'}));
+    cy.visit('http://localhost:3000/match')
+    cy.location('pathname').should('eq', '/match')
+    cy.get('.user-container')
   })
 })
