@@ -1,5 +1,5 @@
 .nav-bar {
-    background-color: #d6c8e0b5;
+    background-color: #ccc5ddd6;
     height: 120px;
     margin: 0;
     display: flex;
@@ -9,7 +9,6 @@
 }
 
 .saved-link {
-    /* all: unset; */
     text-decoration: none;
     font-size: 1.3em;
     padding: 20px;

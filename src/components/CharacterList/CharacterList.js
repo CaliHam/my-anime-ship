@@ -59,7 +59,7 @@ const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, se
 							<p>{user.sign}</p>
 						</article>
 					</div>
-					<Link to="/"><button onClick={changeUser}>Change User</button></Link>
+					<Link to="/"><button className="classic-button" onClick={changeUser}>Change User</button></Link>
 				</aside>
 				<div className='all-characters-container'>
 					{characters && renderCharacters()}

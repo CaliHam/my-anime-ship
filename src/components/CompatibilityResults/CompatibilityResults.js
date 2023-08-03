@@ -38,7 +38,7 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
         </div>
         <article className='result-details-container'>
           <p>{report.compatibilityReport}</p>
-          <p>Click here to see more info about {selectedMan.name}!</p>
+          {/* <p>Click here to see more info about {selectedMan.name}!</p> */}
         </article>
       </section>
     )
