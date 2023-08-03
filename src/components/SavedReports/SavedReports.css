@@ -18,9 +18,26 @@
     background-color: rgba(240, 248, 255, 0.80);
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 7px 7px 15px 0px rgba(0,0,0,0.3)
+    box-shadow: 7px 7px 15px 0px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
 }
 
 .saved-report-score {
     font-size: 1.5em;
+}
+
+.delete-btn {
+    width: 18px;
+    align-self: flex-end;
+    transition: 0.3s ease;
+}
+
+.delete-btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.delete-btn:active {
+    transform: scale(0.95); 
 }
