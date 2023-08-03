@@ -46,7 +46,7 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
 
   return (
     <div className='whole-report-wrapper'>
-      <h2>Compatibility Results</h2>
+      <h1>Compatibility Results</h1>
       {!report ? <p>Loading...</p> : renderReport()}
       <Link to='/match'><button className='classic-button'>Make Another Calculation</button></Link>
     </div>
