@@ -1,5 +1,5 @@
 const getAllCharacters = async () => {
-  const response = await fetch('http://localhost:3001/api/v1/characters')
+  const response = await fetch('https://my-anime-ship-api.onrender.com/api/v1/characters')
   if (!response.ok) {
     throw new Error(response.statusText)
   }
@@ -8,7 +8,7 @@ const getAllCharacters = async () => {
 }
 
 const getCharacter = async (id) => {
-  const response = await fetch(`http://localhost:3001/api/v1/characters/${id}`)
+  const response = await fetch(`https://my-anime-ship-api.onrender.com/api/v1/characters/${id}`)
   if (!response.ok) {
     throw new Error(response.statusText)
   }
@@ -17,7 +17,7 @@ const getCharacter = async (id) => {
 }
 
 const getSavedReports = async () => {
-  const response = await fetch(`http://localhost:3001/api/v1/savedreports`)
+  const response = await fetch(`https://my-anime-ship-api.onrender.com/api/v1/savedreports`)
   if (!response.ok) {
     throw new Error(response.statusText)
   }
@@ -26,7 +26,7 @@ const getSavedReports = async () => {
 }
 
 const fetchZodiacSign = async (month, day) => {
-  const response = await fetch(`http://localhost:3001/api/v1/zodiac`, {
+  const response = await fetch(`https://my-anime-ship-api.onrender.com/api/v1/zodiac`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({month, day})
@@ -39,7 +39,7 @@ const fetchZodiacSign = async (month, day) => {
 }
 
 const postSynastry = async (month1, day1, month2, day2) => {
-  const response = await fetch(`http://localhost:3001/api/v1/synastry`, {
+  const response = await fetch(`https://my-anime-ship-api.onrender.com/api/v1/synastry`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({month1, day1, month2, day2})
@@ -52,7 +52,7 @@ const postSynastry = async (month1, day1, month2, day2) => {
 }
 
 const postCurrentReport = async ({id, user, report, selectedMan}) => {
-  const response = await fetch(`http://localhost:3001/api/v1/savedreports`, {
+  const response = await fetch(`https://my-anime-ship-api.onrender.com/api/v1/savedreports`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({id, user, report, selectedMan})
