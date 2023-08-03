@@ -26,5 +26,11 @@ describe('Match page', () => {
     cy.location('pathname').should('eq', '/report')
     .get('h1').contains('Compatibility Results')
   })
-
+  it('Should allow user to navigate back and change user', () => {
+    cy.location('pathname').should('eq', '/match')
+    .get('.classic-button').first().click()
+    cy.location('pathname').should('eq', '/')
+    .get('input[name="name"]').should('have.value', '')
+    .get('input[name="birthday"]').should('have.value', '')
+  })
 })
