@@ -1,0 +1,26 @@
+.saved-report-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.saved-report-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 2rem;
+    margin: 2rem;
+    align-items: start;
+    width: 50%;
+}
+
+.saved-report {
+    border: 3px ridge #984B8A;
+    background-color: rgba(240, 248, 255, 0.80);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 7px 7px 15px 0px rgba(0,0,0,0.3)
+}
+
+.saved-report-score {
+    font-size: 1.5em;
+}

@@ -1,11 +1,30 @@
 import { Link } from 'react-router-dom'
 import './CompatibilityResults.css'
+import { postCurrentReport } from '../../apiCalls'
+import { useState } from 'react'
+import check from './check.png'
 
-const CompatibilityResults = ({user, report, selectedMan}) => {
+const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
+
+  const [confirmSaved, setConfirmSaved] = useState(false)
+
+  const saveCurrentReport = () => {
+    postCurrentReport({id: Date.now(),
+    user,
+    report,
+    selectedMan})
+      .then(allReports => {
+        setSavedReports(allReports)
+        setConfirmSaved(true)
+      })
+      .catch(err => console.log('ERROR', err))
+  }
 
   const renderReport = () => {
     return (
-      <section>
+      <section className='whole-report-container'>
+        <button className={confirmSaved ? 'save-report disabled' : 'save-report classic-button'} onClick={saveCurrentReport}>Save Results</button>
+        {confirmSaved && <img src={check} alt='saved confirmation' className='saved-checkmark'/>}
         <div className='user-report-container'>
           <img src={user.icon} alt='user icon' className='report-icon'/>
           <div>
@@ -19,7 +38,7 @@ const CompatibilityResults = ({user, report, selectedMan}) => {
         </div>
         <article className='result-details-container'>
           <p>{report.compatibilityReport}</p>
-          <p>Click here to see more info about {selectedMan.name}!</p>
+          {/* <p>Click here to see more info about {selectedMan.name}!</p> */}
         </article>
       </section>
     )
@@ -27,9 +46,9 @@ const CompatibilityResults = ({user, report, selectedMan}) => {
 
   return (
     <div className='whole-report-wrapper'>
-      <h2>Compatibility Results</h2>
+      <h1>Compatibility Results</h1>
       {!report ? <p>Loading...</p> : renderReport()}
-      <Link to='/match'><button>Make Another Calculation</button></Link>
+      <Link to='/match'><button className='classic-button'>Make Another Calculation</button></Link>
     </div>
   )
 }

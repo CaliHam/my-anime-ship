@@ -2,8 +2,18 @@
     background-color: rgba(240, 248, 255, 0.8);
     border-radius: 20px;
     width: 70%;
-    margin: auto;
+    margin: 2em auto;
     padding: 50px;
+}
+
+.whole-report-container {
+    position: relative;
+}
+
+.save-report, .saved-checkmark {
+    position: absolute;
+    right: 0;
+    top: -20%;
 }
 
 .user-report-container {
@@ -20,4 +30,8 @@
 
 .report-score {
     font-size: 4em;
+}
+
+.disabled {
+    display: none;
 }
