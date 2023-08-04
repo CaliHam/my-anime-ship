@@ -8,6 +8,7 @@ describe('Add user to site', () => {
       statusCode: 200,
       body: 'Aries',
     }).as('zodiacPost')
+    window.localStorage.clear()
     cy.visit('http://localhost:3000')
   })
   it('Should load user form and allow form to filled out with chosen icon', () => {
@@ -17,7 +18,8 @@ describe('Add user to site', () => {
     .get('.icon-container').click()
     cy.get('.user-pick-icon').last().click()
     cy.get('.icon-container').find('img').should('have.attr', 'src', 'https://u.cubeupload.com/User713646/Screenshot20230802at.png')
-    .get('input[name="name"]').type('Lady Young')
+    .get('input[name="name"]').clear()
+    cy.get('input[name="name"]').type('Lady Young')
     cy.should('have.value', 'Lady Young')
     .get('input[name="birthday"]').type('1998-04-04')
     cy.should('have.value', '1998-04-04')
