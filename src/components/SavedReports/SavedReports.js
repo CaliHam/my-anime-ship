@@ -33,7 +33,7 @@ const SavedReports = ({savedReports, setSavedReports}) => {
 		<div className='saved-report-wrapper'>
 			<h1>Saved Reports</h1>
 			<section className='saved-report-container'>
-				{!savedReports.length ? <p>Make a calculation and save the report to view it here!</p> : renderReports()}
+				{!savedReports.length ? <h3>Make a calculation and save the report to view it here!</h3> : renderReports()}
 			</section>
 			<Link to='/match'><button className='classic-button'>Make Another Calculation</button></Link>
 		</div>

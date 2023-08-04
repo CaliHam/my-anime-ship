@@ -29,7 +29,6 @@ const User = ({user, setUser, setSavedUser}) => {
 		fetchZodiacSign(month, day).then(sign => {
 			updateStorage(user, sign, selectedIcon)
 			setUser({...user, sign: sign, icon: selectedIcon})
-			// setSavedUser(true)
 			setNavigateToMatch(true)
 		}).catch(err => console.log('ERROR:', err))
 	}
@@ -73,7 +72,7 @@ const User = ({user, setUser, setSavedUser}) => {
     <>
 		{isModalOpen && renderModal()}
 		<div className='user-wrapper'>
-			<h1>Would you have a chance with your favorite anime character? Find out now!</h1>
+			<h1>Would you have a chance with your favorite anime character?</h1>
 			<div className='user-form-container'>
 				<aside className='icon-container' onClick={handleIconClick}>
 					<img src={selectedIcon} alt="user icon" className="user-icon" />
@@ -89,7 +88,10 @@ const User = ({user, setUser, setSavedUser}) => {
 				</form>
 			</div>
 			{formIncomplete && <p className='form-error'>Please fill out form completely!</p>}
-			<button className='next-page' onClick={submitForm}><img className='next-arrow' src={next} alt='next arrow'/></button>
+			<div className='next-container'>
+				<p>Find out now!</p>
+				<button className='next-page' onClick={submitForm}><img className='next-arrow' src={next} alt='next arrow'/></button>
+			</div>
 		</div>
 		</>
   )
