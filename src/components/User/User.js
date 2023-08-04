@@ -7,6 +7,7 @@ import dayjs from 'dayjs'
 import UserIcon from './UserIcon/UserIcon'
 import Modal from "./Modal/Modal";
 import { useState } from 'react'
+import PropTypes from 'prop-types';
 
 const User = ({user, setUser, setSavedUser}) => {
 
@@ -97,4 +98,15 @@ const User = ({user, setUser, setSavedUser}) => {
   )
 }
 
-export default User
+export default User;
+
+User.propTypes = {
+	user: PropTypes.shape({
+    name: PropTypes.string,
+    birthday: PropTypes.string,
+    sign: PropTypes.string,
+    icon: PropTypes.string
+  }),
+	setUser: PropTypes.func,
+	setSavedUser: PropTypes.func,
+}
