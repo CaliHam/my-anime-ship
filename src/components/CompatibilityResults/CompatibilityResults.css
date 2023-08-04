@@ -2,6 +2,7 @@
     background-color: rgba(240, 248, 255, 0.8);
     border-radius: 20px;
     width: 70%;
+    max-width: 800px;
     margin: 2em auto;
     padding: 50px;
 }
@@ -13,10 +14,16 @@
 .save-report, .saved-checkmark {
     position: absolute;
     right: 0;
-    top: -20%;
+    top: -30%;
 }
 
 .user-report-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.zodiac-container {
     display: flex;
     justify-content: space-around;
 }
@@ -30,6 +37,7 @@
 
 .report-score {
     font-size: 4em;
+    margin: 30px;
 }
 
 .disabled {

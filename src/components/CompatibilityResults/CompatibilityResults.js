@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import './CompatibilityResults.css'
 import { postCurrentReport } from '../../apiCalls'
 import { useState } from 'react'
+import { getZodiacIcon } from '../../zodiacIcons/zodiacIcons.js'
 import check from './check.png'
 
 const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
@@ -24,7 +25,10 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
     return facts.map(fact => {
       if (facts.indexOf(fact) === facts.length-1){
         return 'and ' + fact.toLowerCase()
-      } else {return fact.toLowerCase() + ', '}
+      } else if(facts.length === 2) {
+        return fact.toLowerCase() + ' '
+      }
+      else {return fact.toLowerCase() + ', '}
     })
   }
 
@@ -37,7 +41,10 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
           <img src={user.icon} alt='user icon' className='report-icon'/>
           <div>
             <h3>{user.name} & {selectedMan.name}</h3>
-            <p>{user.sign} & {selectedMan.zodiac_sign}</p>
+            <div className='zodiac-container'>
+              <img src={getZodiacIcon(user.sign.toLowerCase())} alt={user.sign}/>
+              <img src={getZodiacIcon(selectedMan.zodiac_sign.toLowerCase())} alt={selectedMan.zodiac_sign}/>
+            </div>
           </div>
           <img src={selectedMan.image_url} alt={`${selectedMan.name} icon`} className='report-icon'/>
         </div>
@@ -46,8 +53,8 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
         </div>
         <article className='result-details-container'>
           <p>{report.compatibilityReport}</p>
-          <p>{selectedMan.name}, from {selectedMan.anime}, enjoys {renderFacts(selectedMan.likes)}. His dislikes include {renderFacts(selectedMan.dislikes)}.</p>
-          <p><a href={selectedMan.wiki_page_url}>Click here</a> to see more info about {selectedMan.name}!</p>
+          <p>{selectedMan.name}, from the hit anime {selectedMan.anime}, enjoys {renderFacts(selectedMan.likes)}. His dislikes include {renderFacts(selectedMan.dislikes)}.</p>
+          <p><a href={selectedMan.wiki_page_url} target="_blank" rel='noreferrer'>Click here</a> to see more info about {selectedMan.name}!</p>
         </article>
       </section>
     )
