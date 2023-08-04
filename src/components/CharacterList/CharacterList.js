@@ -3,11 +3,12 @@ import './CharacterList.css'
 import dayjs from 'dayjs'
 import { getCharacter, postSynastry } from '../../apiCalls'
 import { useState } from 'react'
+import PropTypes from 'prop-types';
 
-const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, setSelectedMan, setReport}) => {
-	const [selectedManId, setSelectedManId] = useState(null)
+const CharacterList = ({user, setUser, characters, setSavedUser, setSelectedCharacter, setReport}) => {
+	const [selectedCharacterId, setSelectedCharacterId] = useState(null)
 	const [navigateToReport, setNavigateToReport] = useState(false)
-	const [manError, setManError] = useState(false)
+	const [characterError, setCharacterError] = useState(false)
 
 	const changeUser = () => {
 		setUser({name: '', birthday: '', sign: '', icon: ''})
@@ -16,28 +17,28 @@ const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, se
 	}
 
 	const renderCharacters = () => {
-		return characters.map(man => {
+		return characters.map(character => {
 			return (
-				<div className={(man.id === selectedManId) ? "character-container selected" : "character-container"} onClick={() => setSelectedManId(man.id)} key={man.id} id={man.id}>
-					<h2>{man.name}</h2>
-					<img id={man.id} src={man.image_url} alt={man.name}/>
+				<div className={(character.id === selectedCharacterId) ? "character-container selected" : "character-container"} onClick={() => setSelectedCharacterId(character.id)} key={character.id} id={character.id}>
+					<h2>{character.name}</h2>
+					<img id={character.id} src={character.image_url} alt={character.name}/>
 				</div>
 			)
 		})
 	}
 
 	const calculateSynastry = () => {
-		if (!selectedManId){
-			setManError(true)
+		if (!selectedCharacterId){
+			setCharacterError(true)
 			return
 		}
 		const dateObj = dayjs(user.birthday, 'MM/DD/YYYY')
 		const userMonth = dateObj.month() + 1;
 		const userDay = dateObj.date()
-		getCharacter(selectedManId).then(man => {
+		getCharacter(selectedCharacterId).then(Character => {
 			setNavigateToReport(true)
-			setSelectedMan(man)
-			postSynastry(userMonth, userDay, man.month, man.day).then(report => setReport(report))
+			setSelectedCharacter(Character)
+			postSynastry(userMonth, userDay, Character.month, Character.day).then(report => setReport(report))
 		})
 	}
 
@@ -47,7 +48,7 @@ const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, se
 
   return (
 	<main>
-		<h1>Pick Your Man</h1>
+		<h1>Pick Your Character</h1>
 		<section className='match-container'>
 			<aside>
 				<div className='user-container'>
@@ -64,10 +65,36 @@ const CharacterList = ({user, setUser, characters, setSavedUser, selectedMan, se
 				{characters && renderCharacters()}
 			</div>
 		</section>
-		{manError && <p className='form-error'>Please select your man!</p>}
+		{characterError && <p className='form-error'>Please select your love interest!</p>}
 		<button className="classic-button" onClick={calculateSynastry}>Calculate</button>
 	</main>
   )
 }
 
-export default CharacterList
+export default CharacterList;
+
+CharacterList.propTypes = {
+	user: PropTypes.shape({
+    name: PropTypes.string,
+    birthday: PropTypes.string,
+    sign: PropTypes.string,
+    icon: PropTypes.string
+  }),
+	setUser: PropTypes.func,
+	characters: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    birthday: PropTypes.number,
+    month: PropTypes.number,
+		day: PropTypes.number,
+		zodiac_sign: PropTypes.string,
+		anime: PropTypes.string,
+		likes: PropTypes.arrayOf(PropTypes.string),
+		dislikes: PropTypes.arrayOf(PropTypes.string),
+		image_url: PropTypes.string,
+    wiki_page_url: PropTypes.string,
+  })),
+	setSavedUser: PropTypes.func,
+	setSelectedCharacter: PropTypes.func,
+	setReport: PropTypes.func,
+}

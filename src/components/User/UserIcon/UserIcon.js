@@ -1,5 +1,6 @@
 import icons from "./icons"; 
-import './UserIcon.css'
+import './UserIcon.css';
+import PropTypes from 'prop-types';
 
 const UserIcon = ({ setSelectedIcon, setIsModalOpen }) => {
 
@@ -18,3 +19,8 @@ const UserIcon = ({ setSelectedIcon, setIsModalOpen }) => {
 };
 
 export default UserIcon;
+
+UserIcon.propTypes = {
+	setSelectedIcon: PropTypes.func,
+	setIsModalOpen: PropTypes.func,
+}

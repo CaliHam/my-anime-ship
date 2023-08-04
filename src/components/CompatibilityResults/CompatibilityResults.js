@@ -3,10 +3,11 @@ import './CompatibilityResults.css'
 import { postCurrentReport } from '../../apiCalls'
 import { useState } from 'react'
 import { getZodiacIcon } from '../../zodiacIcons/zodiacIcons.js'
+import PropTypes from 'prop-types';
 import check from './check.png'
 import spinner from './spinner.gif'
 
-const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
+const CompatibilityResults = ({user, report, selectedCharacter, setSavedReports}) => {
 
   const [confirmSaved, setConfirmSaved] = useState(false)
 
@@ -14,7 +15,7 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
     postCurrentReport({id: Date.now(),
     user,
     report,
-    selectedMan})
+    selectedCharacter})
       .then(allReports => {
         setSavedReports(allReports)
         setConfirmSaved(true)
@@ -41,22 +42,22 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
         <div className='user-report-container'>
           <img src={user.icon} alt='user icon' className='report-icon'/>
           <div>
-            <h3>{user.name} & {selectedMan.name}</h3>
+            <h3>{user.name} & {selectedCharacter.name}</h3>
             <div className='zodiac-container'>
               <img src={getZodiacIcon(user.sign.toLowerCase())} alt={user.sign}/>
-              <img src={getZodiacIcon(selectedMan.zodiac_sign.toLowerCase())} alt={selectedMan.zodiac_sign}/>
+              <img src={getZodiacIcon(selectedCharacter.zodiac_sign.toLowerCase())} alt={selectedCharacter.zodiac_sign}/>
             </div>
           </div>
-          <img src={selectedMan.image_url} alt={`${selectedMan.name} icon`} className='report-icon'/>
+          <img src={selectedCharacter.image_url} alt={`${selectedCharacter.name} icon`} className='report-icon'/>
         </div>
         <div className='percentage-container'>
           <p className='report-score'>{report.compatibilityScore}</p>
         </div>
         <article className='result-details-container'>
           <p>{report.compatibilityReport}</p>
-          <p>{selectedMan.name}, from the hit anime {selectedMan.anime}, enjoys {renderFacts(selectedMan.likes)}. His dislikes include {renderFacts(selectedMan.dislikes)}.</p>
-          <p><a href={selectedMan.wiki_page_url} target="_blank" rel='noreferrer'>Click here</a> to see more info about {selectedMan.name}!</p>
-          <p className='wiki-warning'><b>Warning:</b> The linked page may contain major spoilers for the {selectedMan.anime} series. Please read at your own risk.</p>
+          <p>{selectedCharacter.name}, from the hit anime {selectedCharacter.anime}, enjoys {renderFacts(selectedCharacter.likes)}. His dislikes include {renderFacts(selectedCharacter.dislikes)}.</p>
+          <p><a href={selectedCharacter.wiki_page_url} target="_blank" rel='noreferrer'>Click here</a> to see more info about {selectedCharacter.name}!</p>
+          <p className='wiki-warning'><b>Warning:</b> The linked page may contain major spoilers for the {selectedCharacter.anime} series. Please read at your own risk.</p>
         </article>
       </section>
     )
@@ -71,4 +72,22 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
   )
 }
 
-export default CompatibilityResults
+export default CompatibilityResults;
+
+CompatibilityResults.propTypes = {
+	user: PropTypes.shape({
+    name: PropTypes.string,
+    birthday: PropTypes.string,
+    sign: PropTypes.string,
+    icon: PropTypes.string
+  }),
+	report: PropTypes.shape({
+    sign1: PropTypes.string,
+    sign2: PropTypes.string,
+    areCompatible: PropTypes.bool,
+    compatibilityScore: PropTypes.string,
+    compatibilityReport: PropTypes.string,
+  }),
+	setSelectedCharacter: PropTypes.func,
+	setSavedReports: PropTypes.func,
+}

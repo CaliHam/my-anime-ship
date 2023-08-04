@@ -17,7 +17,7 @@ const App = () => {
   const [savedReports, setSavedReports] = useState([])
   const [serverDown, setServerDown] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const [selectedMan, setSelectedMan] = useState(null)
+  const [selectedCharacter, setSelectedCharacter] = useState(null)
   const [report, setReport] = useState(null)
   
   useEffect(() => {
@@ -59,9 +59,8 @@ const App = () => {
             user={user} 
             setUser={setUser} 
             characters={characters} 
-            setSavedUser={setSavedUser} 
-            selectedMan={selectedMan} 
-            setSelectedMan={setSelectedMan} 
+            setSavedUser={setSavedUser}
+            setSelectedCharacter={setSelectedCharacter} 
             setReport={setReport}/>
           ) : (
             <Navigate replace to="/" />
@@ -69,7 +68,7 @@ const App = () => {
         <Route path="/report" element={<CompatibilityResults 
           user={user} 
           report={report} 
-          selectedMan={selectedMan}
+          selectedCharacter={selectedCharacter}
           setSavedReports={setSavedReports}/>}/>
         <Route path="/savedreports" element={<SavedReports savedReports={savedReports} setSavedReports={setSavedReports}/>}/>
       </Routes>

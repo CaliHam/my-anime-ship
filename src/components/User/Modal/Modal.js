@@ -1,5 +1,6 @@
-import './Modal.css'
-import close from './close.png'
+import './Modal.css';
+import close from './close.png';
+import PropTypes from 'prop-types';
 
 const Modal = ({ closeModal, children }) => {
 
@@ -14,3 +15,8 @@ const Modal = ({ closeModal, children }) => {
 };
 
 export default Modal;
+
+Modal.propTypes = {
+	closeModal: PropTypes.func,
+	children: PropTypes.element.isRequired,
+}

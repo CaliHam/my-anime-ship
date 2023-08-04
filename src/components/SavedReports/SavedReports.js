@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import './SavedReports.css'
 import { deleteSavedReport, getSavedReports } from '../../apiCalls'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
 import x from './x.png'
 
 const SavedReports = ({savedReports, setSavedReports}) => {
@@ -40,4 +41,37 @@ const SavedReports = ({savedReports, setSavedReports}) => {
   )
 }
 
-export default SavedReports
+export default SavedReports;
+
+SavedReports.propTypes = {
+	savedReports: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.number,
+		user: PropTypes.shape({
+			name: PropTypes.string,
+			birthday: PropTypes.string,
+			sign: PropTypes.string,
+			icon: PropTypes.string,
+		}),
+		report: PropTypes.shape({
+			sign1: PropTypes.string,
+			sign2: PropTypes.string,
+			areCompatible: PropTypes.bool,
+			compatibilityScore: PropTypes.string,
+			compatibilityReport: PropTypes.string,
+		}),
+		selectedMan: PropTypes.shape({
+			id: PropTypes.number,
+			name: PropTypes.string,
+			birthday: PropTypes.string,
+			month: PropTypes.number,
+			day: PropTypes.number,
+			zodiac_sign: PropTypes.string,
+			anime: PropTypes.string,
+			likes: PropTypes.arrayOf(PropTypes.string),
+			dislikes: PropTypes.arrayOf(PropTypes.string),
+			image_url: PropTypes.string,
+			wiki_page_url: PropTypes.string,
+		}),
+	})),
+	setSavedReports: PropTypes.func,
+}
