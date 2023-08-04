@@ -23,16 +23,16 @@ h1 {
   font-size: 16px;
   border: none;
   border-radius: 25px;
-  background-color: #ccc5dd;
+  background-color: #b4a6e5dd;
   color: #663399;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
 }
 
 .classic-button:hover {
   color: white;
-  background-color: #b476bd;
+  background-color: #663399;
 }
 
 .classic-button:active {

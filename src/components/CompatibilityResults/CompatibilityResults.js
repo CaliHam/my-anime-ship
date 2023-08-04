@@ -4,6 +4,7 @@ import { postCurrentReport } from '../../apiCalls'
 import { useState } from 'react'
 import { getZodiacIcon } from '../../zodiacIcons/zodiacIcons.js'
 import check from './check.png'
+import spinner from './spinner.gif'
 
 const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
 
@@ -63,7 +64,7 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
   return (
     <div className='whole-report-wrapper'>
       <h1>Compatibility Results</h1>
-      {!report ? <p>Loading...</p> : renderReport()}
+      {!report ? <img src={spinner} alt='loading spinner' className='spinner'/> : renderReport()}
       <Link to='/match'><button className='classic-button'>Make Another Calculation</button></Link>
     </div>
   )

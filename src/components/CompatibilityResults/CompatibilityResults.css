@@ -5,6 +5,9 @@
     max-width: 800px;
     margin: 2em auto;
     padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .whole-report-container {
@@ -15,6 +18,10 @@
     position: absolute;
     right: 0;
     top: -30%;
+}
+
+.saved-checkmark {
+    width: 45px;
 }
 
 .user-report-container {
@@ -32,12 +39,16 @@
     border-radius: 50%;
     width: 125px;
     height: auto;
-    border: 5px dashed white;
+    border: 5px dashed #a99cd7;
 }
 
 .report-score {
     font-size: 4em;
     margin: 30px;
+}
+
+.spinner {
+    width: 200px;
 }
 
 .disabled {

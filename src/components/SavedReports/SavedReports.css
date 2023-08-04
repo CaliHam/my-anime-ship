@@ -5,12 +5,12 @@
 }
 
 .saved-report-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 2rem;
-    margin: 2rem;
-    align-items: start;
-    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    min-height: 250px;
+    margin: 35px;
+    flex-wrap: wrap;
 }
 
 .saved-report {
@@ -18,6 +18,8 @@
     background-color: rgba(240, 248, 255, 0.80);
     border-radius: 10px;
     padding: 10px;
+    width: 200px;
+    margin: 20px;
     box-shadow: 7px 7px 15px 0px rgba(0,0,0,0.3);
     display: flex;
     flex-direction: column;
