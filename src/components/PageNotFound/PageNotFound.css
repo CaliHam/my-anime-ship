@@ -1,3 +1,7 @@
 .error {
     width: 60%;
+    filter: drop-shadow(2px 4px 8px #3723a1);
+    max-width: 780px;
+    min-width: 400px;
+    margin-top: 25px;
 }
