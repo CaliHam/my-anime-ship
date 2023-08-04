@@ -56,7 +56,7 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
           <p>{report.compatibilityReport}</p>
           <p>{selectedMan.name}, from the hit anime {selectedMan.anime}, enjoys {renderFacts(selectedMan.likes)}. His dislikes include {renderFacts(selectedMan.dislikes)}.</p>
           <p><a href={selectedMan.wiki_page_url} target="_blank" rel='noreferrer'>Click here</a> to see more info about {selectedMan.name}!</p>
-          <p><b>Warning:</b> The linked page may contain major spoilers for the {selectedMan.anime} series. Please read at your own risk.</p>
+          <p className='wiki-warning'><b>Warning:</b> The linked page may contain major spoilers for the {selectedMan.anime} series. Please read at your own risk.</p>
         </article>
       </section>
     )
