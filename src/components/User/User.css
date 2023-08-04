@@ -12,8 +12,16 @@
 
 .user-form {
     display: flex;
-    align-items: center;
     flex-direction: column;
+}
+
+input {
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    font-family: 'Cabin', sans-serif;
+    padding: 5px 10px;
+    font-size: 1em;
 }
 
 .icon-container {

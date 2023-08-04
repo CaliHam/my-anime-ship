@@ -29,7 +29,6 @@ const User = ({user, setUser, setSavedUser}) => {
 		fetchZodiacSign(month, day).then(sign => {
 			updateStorage(user, sign, selectedIcon)
 			setUser({...user, sign: sign, icon: selectedIcon})
-			// setSavedUser(true)
 			setNavigateToMatch(true)
 		}).catch(err => console.log('ERROR:', err))
 	}
