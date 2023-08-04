@@ -11,7 +11,6 @@ import PageNotFound from '../PageNotFound/PageNotFound'
 import SavedReports from '../SavedReports/SavedReports';
 
 const App = () => {
-
   const [characters, setCharacters] = useState([])
   const [user, setUser] = useState({name: '', birthday: '', sign: '', icon: ''})
   const [savedUser, setSavedUser] = useState(null)
@@ -41,6 +40,8 @@ const App = () => {
     return (retrieved) ? JSON.parse(retrieved) : null
   }
 
+  
+
   if (isLoading) return (
     <div>Loading...</div>
   )
@@ -51,7 +52,7 @@ const App = () => {
         <Route path="*" element={<PageNotFound />}/>
         <Route path="/" element={<User 
           user={user} 
-          setUser={setUser} 
+          setUser={setUser}
           setSavedUser={setSavedUser}/>}/>
         <Route path="/match" element={ savedUser ? (
           <CharacterList 

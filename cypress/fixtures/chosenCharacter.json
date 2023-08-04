@@ -1,0 +1,13 @@
+{
+  "id": 6,
+  "name": "Levi Ackerman",
+  "birthday": "December 25",
+  "month": 12,
+  "day": 25,
+  "zodiac_sign": "Capricorn",
+  "anime": "Attack on Titan",
+  "likes": ["Cleanliness", "tea", "his squad"],
+  "dislikes": ["Dirt", "disorder", "Titans"],
+  "image_url": "https://u.cubeupload.com/User713646/efcScreenshot20230731at.png",
+  "wiki_page_url": "https://attackontitan.fandom.com/wiki/Levi_Ackermann_(Anime)"
+}
