@@ -3,6 +3,7 @@ import './CompatibilityResults.css'
 import { postCurrentReport } from '../../apiCalls'
 import { useState } from 'react'
 import { getZodiacIcon } from '../../zodiacIcons/zodiacIcons.js'
+import PropTypes from 'prop-types';
 import check from './check.png'
 import spinner from './spinner.gif'
 
@@ -71,4 +72,22 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
   )
 }
 
-export default CompatibilityResults
+export default CompatibilityResults;
+
+CompatibilityResults.propTypes = {
+	user: PropTypes.shape({
+    name: PropTypes.string,
+    birthday: PropTypes.string,
+    sign: PropTypes.string,
+    icon: PropTypes.string
+  }),
+	report: PropTypes.shape({
+    sign1: PropTypes.string,
+    sign2: PropTypes.string,
+    areCompatible: PropTypes.bool,
+    compatibilityScore: PropTypes.string,
+    compatibilityReport: PropTypes.string,
+  }),
+	setSelectedMan: PropTypes.func,
+	setSavedReports: PropTypes.func,
+}
