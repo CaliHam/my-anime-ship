@@ -59,8 +59,7 @@ const App = () => {
             user={user} 
             setUser={setUser} 
             characters={characters} 
-            setSavedUser={setSavedUser} 
-            selectedMan={selectedMan} 
+            setSavedUser={setSavedUser}
             setSelectedMan={setSelectedMan} 
             setReport={setReport}/>
           ) : (
