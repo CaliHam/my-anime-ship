@@ -20,6 +20,14 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
       .catch(err => console.log('ERROR', err))
   }
 
+  const renderFacts = (facts) => {
+    return facts.map(fact => {
+      if (facts.indexOf(fact) === facts.length-1){
+        return 'and ' + fact.toLowerCase()
+      } else {return fact.toLowerCase() + ', '}
+    })
+  }
+
   const renderReport = () => {
     return (
       <section className='whole-report-container'>
@@ -38,7 +46,8 @@ const CompatibilityResults = ({user, report, selectedMan, setSavedReports}) => {
         </div>
         <article className='result-details-container'>
           <p>{report.compatibilityReport}</p>
-          {/* <p>Click here to see more info about {selectedMan.name}!</p> */}
+          <p>{selectedMan.name}, from {selectedMan.anime}, enjoys {renderFacts(selectedMan.likes)}. His dislikes include {renderFacts(selectedMan.dislikes)}.</p>
+          <p><a href={selectedMan.wiki_page_url}>Click here</a> to see more info about {selectedMan.name}!</p>
         </article>
       </section>
     )
