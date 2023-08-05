@@ -1,4 +1,4 @@
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, NavLink } from 'react-router-dom'
 import './CharacterList.css'
 import dayjs from 'dayjs'
 import { getCharacter, postSynastry } from '../../apiCalls'
@@ -9,6 +9,7 @@ const CharacterList = ({user, setUser, characters, setSavedUser, setSelectedChar
 	const [selectedCharacterId, setSelectedCharacterId] = useState(null)
 	const [navigateToReport, setNavigateToReport] = useState(false)
 	const [characterError, setCharacterError] = useState(false)
+	const [characterType, setCharacterType] = useState('all')
 
 	const changeUser = () => {
 		setUser({name: '', birthday: '', sign: '', icon: ''})
@@ -16,8 +17,16 @@ const CharacterList = ({user, setUser, characters, setSavedUser, setSelectedChar
 		setSavedUser(false)
 	}
 
+	const filterCharacters = (characterType) => {
+		if (characterType === 'all'){return characters}
+		else {
+			return characters.filter(character => character.gender === characterType)
+		}
+	}
+
 	const renderCharacters = () => {
-		return characters.map(character => {
+		const filteredCharacters = filterCharacters(characterType)
+		return filteredCharacters.map(character => {
 			return (
 				<div className={(character.id === selectedCharacterId) ? "character-container selected" : "character-container"} onClick={() => setSelectedCharacterId(character.id)} key={character.id} id={character.id}>
 					<h2>{character.name}</h2>
@@ -61,6 +70,11 @@ const CharacterList = ({user, setUser, characters, setSavedUser, setSelectedChar
 				</div>
 				<Link to="/"><button className="classic-button" onClick={changeUser}>Change User</button></Link>
 			</aside>
+			<div className='gender-container'>
+				<button onClick={() => setCharacterType('all')}>All</button>
+				<button onClick={() => setCharacterType('Female')}>Women</button>
+				<button onClick={() => setCharacterType('Male')}>Men</button>
+			</div>
 			<div className='all-characters-container'>
 				{characters && renderCharacters()}
 			</div>
@@ -84,7 +98,7 @@ CharacterList.propTypes = {
 	characters: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
-    birthday: PropTypes.number,
+    birthday: PropTypes.string,
     month: PropTypes.number,
 		day: PropTypes.number,
 		zodiac_sign: PropTypes.string,
