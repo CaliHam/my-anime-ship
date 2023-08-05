@@ -9,6 +9,7 @@ const CharacterList = ({user, setUser, characters, setSavedUser, setSelectedChar
 	const [selectedCharacterId, setSelectedCharacterId] = useState(null)
 	const [navigateToReport, setNavigateToReport] = useState(false)
 	const [characterError, setCharacterError] = useState(false)
+	const [characterType, setCharacterType] = useState('all')
 
 	const changeUser = () => {
 		setUser({name: '', birthday: '', sign: '', icon: ''})
@@ -16,8 +17,16 @@ const CharacterList = ({user, setUser, characters, setSavedUser, setSelectedChar
 		setSavedUser(false)
 	}
 
+	const filterCharacters = (characterType) => {
+		if (characterType === 'all'){return characters}
+		else {
+			return characters.filter(character => character.gender === characterType)
+		}
+	}
+
 	const renderCharacters = () => {
-		return characters.map(character => {
+		const filteredCharacters = filterCharacters(characterType)
+		return filteredCharacters.sort((a, b) => a.name.localeCompare(b.name)).map(character => {
 			return (
 				<div className={(character.id === selectedCharacterId) ? "character-container selected" : "character-container"} onClick={() => setSelectedCharacterId(character.id)} key={character.id} id={character.id}>
 					<h2>{character.name}</h2>
@@ -61,8 +70,15 @@ const CharacterList = ({user, setUser, characters, setSavedUser, setSelectedChar
 				</div>
 				<Link to="/"><button className="classic-button" onClick={changeUser}>Change User</button></Link>
 			</aside>
-			<div className='all-characters-container'>
-				{characters && renderCharacters()}
+			<div className='characters-wrapper'>
+				<div className='filter-btn-container'>
+					<button className={`filter-btn ${(characterType === 'all') ? 'chosen' : ''}`} onClick={() => setCharacterType('all')}>All</button>
+					<button className={`filter-btn ${(characterType === 'Female') ? 'chosen' : ''}`} onClick={() => setCharacterType('Female')}>Women</button>
+					<button className={`filter-btn ${(characterType === 'Male') ? 'chosen' : ''}`} onClick={() => setCharacterType('Male')}>Men</button>
+				</div>
+				<div className='all-characters-container'>
+					{characters && renderCharacters()}
+				</div>
 			</div>
 		</section>
 		{characterError && <p className='form-error'>Please select your love interest!</p>}
@@ -84,7 +100,7 @@ CharacterList.propTypes = {
 	characters: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
-    birthday: PropTypes.number,
+    birthday: PropTypes.string,
     month: PropTypes.number,
 		day: PropTypes.number,
 		zodiac_sign: PropTypes.string,

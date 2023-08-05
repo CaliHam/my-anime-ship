@@ -1,15 +1,45 @@
 .match-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+}
+
+.characters-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0px 50px 50px;
 }
 
 .all-characters-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
-    gap: 2rem;
-    margin: 2rem;
+    gap: 10px;
     align-items: start;
-    width: 50%;
+    border: 4px ridge #4b37b0;
+    padding: 10px;
+    border-radius: 0px 10px 10px 10px;
+    background-color: #abbfd8;
+    overflow-y: auto;
+    height: 500px;
+    max-width: 710px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #4b37b0;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #4b37b0;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #b4a6e5dd;
+    border-radius: 10px;
 }
 
 .character-container {
@@ -18,7 +48,6 @@
     flex-direction: column-reverse;
     text-align: center;
     margin: 0;
-    overflow: hidden;
 }
 
 .character-container > img {
@@ -59,4 +88,23 @@
     filter: drop-shadow(0px 0px 25px #4b37b0);
     text-shadow: 0 0 10px #4b37b0;
     color: #f1eeff;
+}
+
+.filter-btn-container {
+    align-self: flex-start;
+}
+
+.filter-btn {
+    border-radius: 8px 8px 0px 0px;
+    color: #271c5c;
+    border: 2px outset #abbfd8;
+    background-color: #abbfd8;
+    border-bottom: none;
+}
+
+.chosen {
+    color: aliceblue;
+    background-color: #4b37b0;
+    border: 2px outset #271c5c;
+    border-bottom: none;
 }

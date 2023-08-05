@@ -55,7 +55,7 @@ const CompatibilityResults = ({user, report, selectedCharacter, setSavedReports}
         </div>
         <article className='result-details-container'>
           <p>{report.compatibilityReport}</p>
-          <p>{selectedCharacter.name}, from the hit anime {selectedCharacter.anime}, enjoys {renderFacts(selectedCharacter.likes)}. His dislikes include {renderFacts(selectedCharacter.dislikes)}.</p>
+          <p>{selectedCharacter.name}, from the hit anime {selectedCharacter.anime}, enjoys {renderFacts(selectedCharacter.likes)}. Their dislikes include {renderFacts(selectedCharacter.dislikes)}.</p>
           <p><a href={selectedCharacter.wiki_page_url} target="_blank" rel='noreferrer'>Click here</a> to see more info about {selectedCharacter.name}!</p>
           <p className='wiki-warning'><b>Warning:</b> The linked page may contain major spoilers for the {selectedCharacter.anime} series. Please read at your own risk.</p>
         </article>
