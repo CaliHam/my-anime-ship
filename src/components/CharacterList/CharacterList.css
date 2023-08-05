@@ -64,7 +64,7 @@
 }
 
 .user-container {
-    border: 2px ridge rebeccapurple;
+    border: 2px ridge #4b37b0;
     border-radius: 10px;
     margin: 20px;
     padding: 10px;
@@ -107,4 +107,29 @@
     background-color: #4b37b0;
     border: 2px outset #271c5c;
     border-bottom: none;
+}
+
+@media screen and (max-width: 970px){
+    .match-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .match-container > aside {
+        display: flex;
+        align-items: center;
+    }
+    .characters-wrapper {
+        width: 70%;
+        margin: 10px 50px 50px;
+    }
+    .all-characters-container {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 670px){
+    .match-container > aside {
+        flex-direction: column-reverse;
+    }
 }
