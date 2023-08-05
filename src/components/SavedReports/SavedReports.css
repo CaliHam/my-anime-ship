@@ -90,3 +90,9 @@
 .view-report-btn {
     align-self: center;
 }
+
+@media screen and (max-width: 600px){
+    .saved-report {
+        width: auto;
+    }
+}

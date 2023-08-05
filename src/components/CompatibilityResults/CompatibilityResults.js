@@ -75,7 +75,7 @@ const CompatibilityResults = ({user, report, selectedCharacter, savedReports, se
           <p className='report-score'>{previousReport ? previousReport.report.compatibilityScore : report.compatibilityScore}</p>
         </div>
         <article className='result-details-container'>
-          <p>{previousReport ? previousReport.report.compatibilityReport : report.compatibilityScore}</p>
+          <p>{previousReport ? previousReport.report.compatibilityReport : report.compatibilityReport}</p>
           <p>{previousReport ? previousReport.selectedCharacter.name : selectedCharacter.name}, from the hit anime {previousReport ? previousReport.selectedCharacter.anime : selectedCharacter.anime}, enjoys {previousReport ? renderFacts(previousReport.selectedCharacter.likes) : renderFacts(selectedCharacter.likes)}. Their dislikes include {previousReport ? renderFacts(previousReport.selectedCharacter.dislikes) : renderFacts(selectedCharacter.dislikes)}.</p>
           <p><a href={previousReport ? previousReport.selectedCharacter.wiki_page_url : selectedCharacter.wiki_page_url} target="_blank" rel='noreferrer'>Click here</a> to see more info about {previousReport ? previousReport.selectedCharacter.name : selectedCharacter.name}!</p>
           <p className='wiki-warning'><b>Warning:</b> The linked page may contain major spoilers for the {previousReport ? previousReport.selectedCharacter.anime : selectedCharacter.anime} series. Please read at your own risk.</p>
