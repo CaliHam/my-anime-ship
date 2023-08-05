@@ -1,7 +1,10 @@
-body {
+html, body {
   margin: 0;
+}
+
+body {
   height: 100vh;
-  font-family: 'Roboto';
+  font-family: 'Cabin', sans-serif;
   -webkit-font-smoothing: antialiased;
   background-image: url('https://u.cubeupload.com/User713646/pxfuelfull.jpg');
   background-size: cover;
