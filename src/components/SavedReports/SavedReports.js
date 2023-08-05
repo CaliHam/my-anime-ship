@@ -37,7 +37,7 @@ const SavedReports = ({savedReports, setSavedReports}) => {
 							<img className='zodiac-icon' src={getZodiacIcon(report.selectedCharacter.zodiac_sign.toLowerCase())} alt={report.selectedCharacter.zodiac_sign}/>
 						</div>
 					</div>
-					<button className='classic-button view-report-btn'>View Whole Report</button>
+					<Link to={`/savedreports/${report.id}`}><button className='classic-button view-report-btn'>View Whole Report</button></Link>
 				</div>
 			)
 		})
