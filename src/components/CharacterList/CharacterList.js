@@ -70,13 +70,15 @@ const CharacterList = ({user, setUser, characters, setSavedUser, setSelectedChar
 				</div>
 				<Link to="/"><button className="classic-button" onClick={changeUser}>Change User</button></Link>
 			</aside>
-			<div className='gender-container'>
-				<button onClick={() => setCharacterType('all')}>All</button>
-				<button onClick={() => setCharacterType('Female')}>Women</button>
-				<button onClick={() => setCharacterType('Male')}>Men</button>
-			</div>
-			<div className='all-characters-container'>
-				{characters && renderCharacters()}
+			<div className='characters-wrapper'>
+				<div className='filter-btn-container'>
+					<button className={`filter-btn ${(characterType === 'all') ? 'chosen' : ''}`} onClick={() => setCharacterType('all')}>All</button>
+					<button className={`filter-btn ${(characterType === 'Female') ? 'chosen' : ''}`} onClick={() => setCharacterType('Female')}>Women</button>
+					<button className={`filter-btn ${(characterType === 'Male') ? 'chosen' : ''}`} onClick={() => setCharacterType('Male')}>Men</button>
+				</div>
+				<div className='all-characters-container'>
+					{characters && renderCharacters()}
+				</div>
 			</div>
 		</section>
 		{characterError && <p className='form-error'>Please select your love interest!</p>}
