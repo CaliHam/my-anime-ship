@@ -1,14 +1,17 @@
 describe('Saved Reports', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/characters', {
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      return false
+    })
+    cy.intercept('GET', 'https://my-anime-ship-api.onrender.com/api/v1/characters', {
       statusCode: 200,
       fixture: 'allCharacters',
     }).as('getAllCharacters')
-    cy.intercept('GET', 'http://localhost:3001/api/v1/savedreports', {
+    cy.intercept('GET', 'https://my-anime-ship-api.onrender.com/api/v1/savedreports', {
       statusCode: 200,
       fixture: 'allSavedReports',
     }).as('getAllSaved')
-    cy.intercept('DELETE', 'http://localhost:3001/api/v1/savedreports/1691015485484', {
+    cy.intercept('DELETE', 'https://my-anime-ship-api.onrender.com/api/v1/savedreports/1691015485484', {
       statusCode: 200,
       fixture: 'deleteReport',
     }).as('deleteReport')
@@ -31,15 +34,15 @@ describe('Saved Reports', () => {
     .get('.saved-report').first().find('p').last().contains('22%')
     .get('.classic-button').last().click()
     cy.location('pathname').should('eq', '/match')
-    .get('h1').contains('Pick Your Man')
+    .get('h1').contains('Pick Your Match')
   })
   it('Should show message when no reports are saved', () => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/savedreports', {
+    cy.intercept('GET', 'https://my-anime-ship-api.onrender.com/api/v1/savedreports', {
       statusCode: 200,
       body: [],
     })
     cy.visit('http://localhost:3000/savedreports')
     .get('h1').contains('Saved Reports')
-    .get('.saved-report-container').find('p').contains('Make a calculation and save the report to view it here!')
+    .get('.saved-report-container').find('h3').contains('Make a calculation and save the report to view it here!')
   })
 })

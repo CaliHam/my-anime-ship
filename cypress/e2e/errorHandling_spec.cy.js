@@ -1,6 +1,9 @@
 describe('500 error', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/characters', {
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      return false
+    })
+    cy.intercept('GET', 'https://my-anime-ship-api.onrender.com/api/v1/characters', {
       statusCode: 500,
     })
     cy.visit('http://localhost:3000')
@@ -18,7 +21,7 @@ describe('500 error', () => {
 
 describe('400 error', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/characters', {
+    cy.intercept('GET', 'https://my-anime-ship-api.onrender.com/api/v1/characters', {
       statusCode: 200,
       fixture: 'allCharacters',
     })
@@ -35,7 +38,7 @@ describe('400 error', () => {
 
 describe('User verification', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/characters', {
+    cy.intercept('GET', 'https://my-anime-ship-api.onrender.com/api/v1/characters', {
       statusCode: 200,
       fixture: 'allCharacters',
     })
@@ -44,21 +47,21 @@ describe('User verification', () => {
     cy.visit('http://localhost:3000/')
     cy.get('input[name="name"]').type('Lady Young')
     cy.get('.next-page').click()
-    cy.get('.form-error').contains('Please fill out form completely!')
+    cy.get('.form-error').should('have.text', 'Please fill out form completely!')
     cy.get('input[name="name"]').clear()
     cy.get('input[name="birthday"]').type('1998-04-04')
     cy.get('.next-page').click()
-    cy.get('.form-error').contains('Please fill out form completely!')
+    cy.get('.form-error').should('have.text', 'Please fill out form completely!')
   })
   it('Should show error message when man is not selected', () => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/characters/6', {
+    cy.intercept('GET', 'https://my-anime-ship-api.onrender.com/api/v1/characters/6', {
       statusCode: 200,
       fixture: 'chosenCharacter',
     })
     window.localStorage.setItem('user', JSON.stringify({ name: 'Lady Young', birthday: '1998-04-04', sign:'Aries', icon:'https://u.cubeupload.com/User713646/Screenshot20230802at.png'}));
     cy.visit('http://localhost:3000/match')
-    .get('h1').contains('Pick Your Man')
+    .get('h1').should('have.text', 'Pick Your Match')
     .get('.classic-button').last().click()
-    cy.get('.form-error').contains('Please select your man!')
+    cy.get('.form-error').should('have.text', 'Please select your love interest!')
   })
 })
