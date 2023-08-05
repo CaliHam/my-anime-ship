@@ -57,7 +57,7 @@ const CharacterList = ({user, setUser, characters, setSavedUser, setSelectedChar
 
   return (
 	<main>
-		<h1>Pick Your Character</h1>
+		<h1>Pick Your Match</h1>
 		<section className='match-container'>
 			<aside>
 				<div className='user-container'>

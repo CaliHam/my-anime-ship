@@ -23,7 +23,7 @@ const SavedReports = ({savedReports, setSavedReports}) => {
 			return (
 				<div key={report.id} id={report.id} className='saved-report'>
 					<button className='delete-btn btn' onClick={() => deleteReport(report.id)}><img src={x} alt='delete report' className='delete-btn'/></button>
-					<p>{report.user.name} and {report.selectedMan.name}</p>
+					<p>{report.user.name} and {report.selectedCharacter.name}</p>
 					<p className='saved-report-score'>{report.report.compatibilityScore}</p>
 				</div>
 			)
@@ -59,7 +59,7 @@ SavedReports.propTypes = {
 			compatibilityScore: PropTypes.string,
 			compatibilityReport: PropTypes.string,
 		}),
-		selectedMan: PropTypes.shape({
+		selectedCharacter: PropTypes.shape({
 			id: PropTypes.number,
 			name: PropTypes.string,
 			birthday: PropTypes.string,

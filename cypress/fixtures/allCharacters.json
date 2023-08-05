@@ -3,19 +3,21 @@
     "id": 2,
     "name": "Eren Yeager",
     "birthday": "March 30",
+    "gender": "Male",
     "month": 3,
     "day": 30,
     "zodiac_sign": "Aries",
     "anime": "Attack on Titan",
     "likes": ["Freedom", "avenging his mother"],
     "dislikes": ["Titans", "oppression", "being powerless"],
-    "image_url": "https://u.cubeupload.com/User713646/Screenshot20230731at.png",
+    "image_url": "https://u.cubeupload.com/User713646/d62Screenshot20230803at.png",
     "wiki_page_url": "https://attackontitan.fandom.com/wiki/Eren_Yeager"
   },
   {
     "id": 6,
     "name": "Levi Ackerman",
     "birthday": "December 25",
+    "gender": "Male",
     "month": 12,
     "day": 25,
     "zodiac_sign": "Capricorn",
@@ -24,5 +26,33 @@
     "dislikes": ["Dirt", "disorder", "Titans"],
     "image_url": "https://u.cubeupload.com/User713646/efcScreenshot20230731at.png",
     "wiki_page_url": "https://attackontitan.fandom.com/wiki/Levi_Ackermann_(Anime)"
-  }
+  },
+  {
+    "id": 13,
+    "name": "Faye Valentine",
+    "birthday": "August 14",
+    "gender": "Female",
+    "month": 8,
+    "day": 14,
+    "zodiac_sign": "Leo",
+    "anime": "Cowboy Bebop",
+    "likes": ["Gambling", "music", "teasing Spike"],
+    "dislikes": ["Her past", "being controlled"],
+    "image_url": "https://u.cubeupload.com/User713646/becScreenshot20230804at.png",
+    "wiki_page_url": "https://cowboybebop.fandom.com/wiki/Faye_Valentine"
+},
+{
+    "id": 14,
+    "name": "Nami",
+    "birthday": "July 3",
+    "gender": "Female",
+    "month": 7,
+    "day": 3,
+    "zodiac_sign": "Cancer",
+    "anime": "One Piece",
+    "likes": ["Tangerines", "drawing maps", "her friends", "money"],
+    "dislikes": ["Being in debt", "bad weather at sea"],
+    "image_url": "https://u.cubeupload.com/User713646/ad0Screenshot20230804at.png",
+    "wiki_page_url": "https://onepiece.fandom.com/wiki/Nami"
+}
 ]
