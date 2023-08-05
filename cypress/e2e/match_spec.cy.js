@@ -7,7 +7,7 @@ describe('Match page', () => {
     window.localStorage.setItem('user', JSON.stringify({ name: 'Lady Young', birthday: '1998-04-04', sign:'Aries', icon:'https://u.cubeupload.com/User713646/Screenshot20230802at.png'}));
     cy.visit('http://localhost:3000/match')
   })
-  it('Should load user and allow user to choose a man', () => {
+  it('Should load user and allow user to choose a character based on gender', () => {
     cy.intercept('GET', 'http://localhost:3001/api/v1/characters/6', {
       statusCode: 200,
       fixture: 'chosenCharacter',
@@ -17,12 +17,15 @@ describe('Match page', () => {
       fixture: 'synastryResults',
     })
     cy.location('pathname').should('eq', '/match')
-    .get('h1').contains('Pick Your Man')
+    .get('h1').contains('Pick Your Character')
     .get('.current-user-icon').should('have.attr', 'src', 'https://u.cubeupload.com/User713646/Screenshot20230802at.png')
     .get('.user-container').find('p').first().contains('Lady Young')
     .get('.user-container').find('p').last().contains('Aries')
     .get('.all-characters-container').find('.character-container')
-    .should('have.length', '2').find('#6').click()
+    .should('have.length', '4')
+    // navigate around the new buttons
+    .get('.filter-btn')
+    .find('#6').click()
     cy.get('.all-characters-container').find('#6').should('have.class', 'character-container selected')
     .get('.classic-button').last().click()
     cy.location('pathname').should('eq', '/report')
