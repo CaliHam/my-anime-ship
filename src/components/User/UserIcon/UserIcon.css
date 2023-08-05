@@ -13,7 +13,23 @@
 
 .icons-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(4, 1fr); 
     gap: 2rem;
     margin: 2rem;
+}
+
+@media screen and (max-width: 705px){
+    .icons-container {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+@media screen and (max-width: 530px){
+    .user-pick-icon {
+        height: 80px;
+        width: 80px;
+    }
+    .icons-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
 }
