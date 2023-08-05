@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router';
 import { useEffect, useState } from 'react';
-import { getAllCharacters, getSavedReports } from '../../apiCalls';
+import { getAllCharacters } from '../../apiCalls';
 import CharacterList from '../CharacterList/CharacterList';
 import Navbar from '../Navbar/Navbar';
 import User from '../User/User';
@@ -40,8 +40,6 @@ const App = () => {
     return (retrieved) ? JSON.parse(retrieved) : null
   }
 
-  
-
   if (isLoading) return (
     <div>Loading...</div>
   )
@@ -69,8 +67,16 @@ const App = () => {
           user={user} 
           report={report} 
           selectedCharacter={selectedCharacter}
+          savedReports={null}
           setSavedReports={setSavedReports}/>}/>
-        <Route path="/savedreports" element={<SavedReports savedReports={savedReports} setSavedReports={setSavedReports}/>}/>
+        <Route path="/savedreports/" element={<SavedReports savedReports={savedReports} setSavedReports={setSavedReports}/>} />
+        <Route path="/savedreports/:id" element={<CompatibilityResults 
+          user={user} 
+          report={report} 
+          selectedCharacter={selectedCharacter}
+          savedReports={savedReports}
+          setSavedReports={setSavedReports}/>}/>
+            
       </Routes>
     )
   }

@@ -15,6 +15,8 @@ font-family: 'Pacifico', cursive; */
 
 h1 {
   font-family: 'Pacifico', cursive;
+  padding: 20px;
+  margin: 0;
 }
 
 h3 {
@@ -28,11 +30,12 @@ p {
 .classic-button {
   display: inline-block;
   padding: 10px 20px;
+  width: fit-content;
   font-size: 16px;
   border: none;
   border-radius: 25px;
   background-color: #b4a6e5dd;
-  color: #663399;
+  color: #4b37b0;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
@@ -40,9 +43,28 @@ p {
 
 .classic-button:hover {
   color: white;
-  background-color: #663399;
+  background-color: #4b37b0;
 }
 
 .classic-button:active {
   transform: scale(0.95); 
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  z-index: 3;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4b37b0;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4b37b0;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #b4a6e5dd;
+  border-radius: 10px;
 }
