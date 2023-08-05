@@ -45,6 +45,12 @@
 .report-score {
     font-size: 4em;
     margin: 30px;
+    font-family: 'Pacifico', cursive;
+    width: 209px;
+    height: 169px;
+    padding: 39px 10px 10px;    
+    margin: auto;
+    background-image: url('./blur-heart-pink.png');
 }
 
 .spinner {
