@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+.user-wrapper {
+    height: 100vh;
+}
+
 .user-form-container {
     display: flex;
     justify-content: space-evenly;
