@@ -1,4 +1,4 @@
-import { Link, Navigate, NavLink } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import './CharacterList.css'
 import dayjs from 'dayjs'
 import { getCharacter, postSynastry } from '../../apiCalls'
@@ -26,7 +26,7 @@ const CharacterList = ({user, setUser, characters, setSavedUser, setSelectedChar
 
 	const renderCharacters = () => {
 		const filteredCharacters = filterCharacters(characterType)
-		return filteredCharacters.map(character => {
+		return filteredCharacters.sort((a, b) => a.name.localeCompare(b.name)).map(character => {
 			return (
 				<div className={(character.id === selectedCharacterId) ? "character-container selected" : "character-container"} onClick={() => setSelectedCharacterId(character.id)} key={character.id} id={character.id}>
 					<h2>{character.name}</h2>

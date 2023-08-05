@@ -13,7 +13,7 @@
 .all-characters-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
-    gap: 1rem;
+    gap: 10px;
     align-items: start;
     border: 4px ridge #4b37b0;
     padding: 10px;
@@ -22,7 +22,6 @@
     overflow-y: auto;
     height: 500px;
     max-width: 710px;
-    /* scrollbar-color: #4b37b0 #b0bed8c4; */
 }
 
 ::-webkit-scrollbar {
