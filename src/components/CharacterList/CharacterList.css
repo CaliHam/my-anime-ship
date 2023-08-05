@@ -24,24 +24,6 @@
     max-width: 669px;
 }
 
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #4b37b0;
-    border-radius: 8px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #4b37b0;
-}
-
-::-webkit-scrollbar-track {
-    background-color: #b4a6e5dd;
-    border-radius: 10px;
-}
-
 .character-container {
     display: flex;
     justify-content: center;

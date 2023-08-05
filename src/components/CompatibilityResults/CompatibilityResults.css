@@ -4,10 +4,11 @@
     width: 70%;
     max-width: 900px;
     margin: 2em auto;
-    padding: 50px;
+    padding: 15px 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 750px;
 }
 
 .whole-report-container {
@@ -16,8 +17,8 @@
 
 .save-report, .saved-checkmark {
     position: absolute;
-    right: 0;
-    top: -22%;
+    right: -30px;
+    top: -97px;
 }
 
 .saved-checkmark {
@@ -64,4 +65,37 @@
 
 .disabled {
     display: none;
+}
+
+@media screen and (max-width: 1240px){
+    .whole-report-wrapper {
+        overflow-y: auto;
+        border-radius: 20px 5px 5px 20px;
+    }
+}
+
+@media screen and (max-width: 1060px){
+    .save-report, .saved-checkmark {
+        top: -123px;
+    }
+    .whole-report-wrapper > h1 {
+        padding-top: 50px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .user-report-container {
+        flex-direction: column;
+        width: 180px;
+        margin: auto;
+    }
+    .whole-report-wrapper {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 561px){
+    .save-report, .saved-checkmark {
+        top: -15%;
+    }
 }
