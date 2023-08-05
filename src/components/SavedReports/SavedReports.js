@@ -4,6 +4,7 @@ import { deleteSavedReport, getSavedReports } from '../../apiCalls'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import x from './x.png'
+import { getZodiacIcon } from '../../zodiacIcons/zodiacIcons';
 
 const SavedReports = ({savedReports, setSavedReports}) => {
 
@@ -23,8 +24,20 @@ const SavedReports = ({savedReports, setSavedReports}) => {
 			return (
 				<div key={report.id} id={report.id} className='saved-report'>
 					<button className='delete-btn btn' onClick={() => deleteReport(report.id)}><img src={x} alt='delete report' className='delete-btn'/></button>
-					<p>{report.user.name} and {report.selectedCharacter.name}</p>
-					<p className='saved-report-score'>{report.report.compatibilityScore}</p>
+					<div className='report-details-container'>
+						<div className='saved-user-container'>
+							<img className='zodiac-icon' src={getZodiacIcon(report.user.sign.toLowerCase())} alt={report.user.sign}/>
+							<p>{report.user.name}</p>
+							<img className='saved-report-icon' src={report.user.icon} alt={`${report.user.name}'s icon`}/>
+						</div>
+							<p className='saved-score report-score'>{report.report.compatibilityScore}</p>
+						<div className='saved-user-container'>
+							<img className='saved-report-icon' src={report.selectedCharacter.image_url} alt={`${report.selectedCharacter.name}'s icon`}/>
+							<p>{report.selectedCharacter.name}</p>
+							<img className='zodiac-icon' src={getZodiacIcon(report.selectedCharacter.zodiac_sign.toLowerCase())} alt={report.selectedCharacter.zodiac_sign}/>
+						</div>
+					</div>
+					<button className='classic-button view-report-btn'>View Whole Report</button>
 				</div>
 			)
 		})
