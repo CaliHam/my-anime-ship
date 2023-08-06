@@ -14,20 +14,18 @@ In order to clone this application:
 - [Deploy Link](my-anime-ship.vercel.app)
 
 ### Preview of App:
-![bare-min-phone-gif](https://github.com/SethBurns/bare-minimum/assets/126219151/d9c07fb8-5acf-42fa-95a8-87cd808a42c3) <br>
-![bare-min-gif](https://github.com/SethBurns/bare-minimum/assets/126219151/246c9c77-b3cc-4225-806a-9c929b872dcc)
 
 ### Context:
 I am currently in Mod 3 of the Turing Frontend Development Program. A total of 50 hours were spent on this project.
 
 ## Contributors
 <table>
-     <tr>
-        <td> Calli Herrmann <a href="https://github.com/CaliHam">Github</td>
-    </tr>
-    <tr>
-        <td><img src="https://avatars.githubusercontent.com/u/126219151?v=4" alt="Calli GH img"
-    width="150" height="auto" /></td>
+  <tr>
+    <td> Calli Herrmann <a href="https://github.com/CaliHam">Github</td>
+  </tr>
+  <tr>
+    <td><img src="https://avatars.githubusercontent.com/u/126219151?v=4" alt="Calli GH img"
+  width="150" height="auto" /></td>
 </table>
 
 ### Learning Goals:
@@ -45,4 +43,4 @@ I am currently in Mod 3 of the Turing Frontend Development Program. A total of 5
 #### Dependencies
 npm i
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._
