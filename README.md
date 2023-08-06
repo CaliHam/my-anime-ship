@@ -15,6 +15,8 @@ In order to clone this application:
 
 ### Preview of App:
 
+![Preview of My Anime Ship](https://github.com/CaliHam/my-anime-ship/assets/126219151/70d97298-2c47-4ed6-b675-7cb8f150db42)
+
 ### Context:
 I am currently in Mod 3 of the Turing Frontend Development Program. A total of 50 hours were spent on this project.
 
@@ -36,6 +38,7 @@ I am currently in Mod 3 of the Turing Frontend Development Program. A total of 5
 - Make network requests to retrieve data from the server and post data from the server.
 - Utilize ExpressJS to create a functioning backend database and server-side operation handling. 
 - Maintain proper git workflow and practices.
+- ![Accessibility 100%](https://github.com/CaliHam/my-anime-ship/assets/126219151/df695eda-e8d9-4ac9-bcf0-525f280bd8f0)
 
 ### Tech Stack
 - JavaScript, CSS/HTML, Cypress, Webpack, React, React Router, FETCH API's, Express JS
