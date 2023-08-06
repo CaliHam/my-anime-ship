@@ -3,7 +3,7 @@
 ## Abstract: 
 Would you have a chance with your favorite anime character? Find out now with My Anime Ship! Start by entering your name, birthday, and choose an icon. You can then choose a male or female character and see your compatibility! Save your results to view them in the "Saved Reports" tab and visit the report again at any time! Feel free to visit on computer, tablet, or phone as this site is fully responsive!
 
-## Installation Instructions
+### Installation Instructions
 In order to clone this application:
 - clone this repository using the SSH key into your local machine
 - cd (change directory) into the project
@@ -18,7 +18,7 @@ In order to clone this application:
 ### Context:
 I am currently in Mod 3 of the Turing Frontend Development Program. A total of 50 hours were spent on this project.
 
-## Contributors
+### Contributors
 <table>
   <tr>
     <td> Calli Herrmann <a href="https://github.com/CaliHam">Github</td>
