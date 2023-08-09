@@ -1,4 +1,6 @@
 # My Anime Ship
+### [View The Deployed API Here](https://my-anime-ship-api.onrender.com)
+### [View Deployed Site](my-anime-ship.vercel.app)
 
 ## Abstract: 
 Would you have a chance with your favorite anime character? Find out now with My Anime Ship! Start by entering your name, birthday, and choose an icon. You can then choose a male or female character and see your compatibility! Save your results to view them in the "Saved Reports" tab and visit the report again at any time! Feel free to visit on computer, tablet, or phone as this site is fully responsive!
@@ -11,11 +13,10 @@ In order to clone this application:
 - Once that is finished run `npm start`. You will see a local host link in your terminal
 - You will then clone down this repository and `cd` into the my-anime-ship file.
 - Run `npm install` and then `npm start`
-- [Deploy Link](my-anime-ship.vercel.app)
 
 ### Preview of App:
 
-![Preview of My Anime Ship](https://github.com/CaliHam/my-anime-ship/assets/126219151/70d97298-2c47-4ed6-b675-7cb8f150db42)
+![Preview of My Anime Ship](https://github.com/CaliHam/my-anime-ship/assets/126219151/c35114e2-68ea-4aa3-a152-183937c2557d)
 
 ### Context:
 I am currently in Mod 3 of the Turing Frontend Development Program. A total of 50 hours were spent on this project.
@@ -38,7 +39,6 @@ I am currently in Mod 3 of the Turing Frontend Development Program. A total of 5
 - Make network requests to retrieve data from the server and post data from the server.
 - Utilize ExpressJS to create a functioning backend database and server-side operation handling. 
 - Maintain proper git workflow and practices.
-- ![Accessibility 100%](https://github.com/CaliHam/my-anime-ship/assets/126219151/df695eda-e8d9-4ac9-bcf0-525f280bd8f0)
 
 ### Tech Stack
 - JavaScript, CSS/HTML, Cypress, Webpack, React, React Router, FETCH API's, Express JS
