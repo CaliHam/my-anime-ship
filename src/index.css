@@ -1,13 +1,24 @@
 body {
   font-family: 'Cabin', sans-serif;
   -webkit-font-smoothing: antialiased;
-  background-image: url('https://u.cubeupload.com/User713646/pxfuelfull.jpg');
+  background-image: url('https://u.cubeupload.com/User713646/pxfuelfull.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  backdrop-filter: blur(30px);
   margin: 0;
   max-width: 100%;
   overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
 }
